@@ -3,6 +3,7 @@ import { DM_Sans, Space_Grotesk, JetBrains_Mono, Pacifico } from "next/font/goog
 import "./globals.css";
 
 import Navbar from "../components/Navbar";
+import GoogleAnalytics from "../components/GoogleAnalytics";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
     default: "ATHENA MEA — Market Entry Advisory for India & Middle East",
     template: "%s | ATHENA MEA",
   },
-  description: "Strategic market entry advisory, executive search and consulting for global businesses expanding into India, UAE and the Middle East. Offices in Gurgaon, Dubai and Riyadh.",
+  description: "Market entry advisory, executive search and consulting for global businesses expanding into India, UAE and the Middle East.",
   keywords: ["market entry advisory", "India market entry", "UAE market entry", "Middle East consulting", "executive search India", "executive search UAE", "business expansion India", "business expansion Middle East", "ATHENA MEA", "market entry strategy"],
   authors: [{ name: "ATHENA Market Entry Advisors" }],
   creator: "ATHENA Market Entry Advisors",
@@ -103,6 +104,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning={true}>
       <head>
         <link rel="llms" href="/llms.txt" />
+        <GoogleAnalytics />
       </head>
       <body
         className={`${dmSans.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${pacifico.variable} font-sans antialiased`}

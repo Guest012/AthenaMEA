@@ -4,13 +4,13 @@ import { useState, useEffect, useCallback } from 'react';
 
 const SLIDES = [
   {
-    image: '/hero-india.png',
+    image: '/hero-india.webp',
     alt: 'Modern India skyline at night with light trails',
     label: 'India',
     subtitle: 'Navigate the world\'s fastest-growing major economy',
   },
   {
-    image: '/hero-dubai.png',
+    image: '/hero-dubai.webp',
     alt: 'Dubai futuristic skyline at golden hour',
     label: 'Middle East',
     subtitle: 'Unlock opportunities across the Gulf\'s dynamic markets',

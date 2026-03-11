@@ -30,7 +30,7 @@ const services: ServiceDetail[] = [
     href: '/services/market-entry-strategy',
     description:
       'Comprehensive market analysis and entry strategies tailored for India and Middle East markets with regulatory compliance guidance.',
-    image: '/market-entry-card.png',
+    image: '/market-entry-card.webp',
     services: [
       'Feasibility Study',
       'Competitive Benchmarking',
@@ -200,7 +200,7 @@ const services: ServiceDetail[] = [
     href: '/services/hr-due-diligence',
     description:
       'Comprehensive HR assessments, compliance audits, and risk evaluation for mergers, acquisitions, and market expansions.',
-    image: '/hr-due-diligence-card.png',
+    image: '/hr-due-diligence-card.webp',
     services: [
       'Compliance Audits',
       'Risk Assessment',
@@ -330,7 +330,7 @@ function ServiceDetailPanel({ service, onClose }: { service: ServiceDetail; onCl
 
         {/* Hero banner */}
         <div className="relative h-48 overflow-hidden">
-          <img src={service.image} alt="" className="w-full h-full object-cover" />
+          <img src={service.image} alt={`${service.title} service overview`} className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${service.accentSolid}cc, ${service.accentSolid}88)` }} />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-8">

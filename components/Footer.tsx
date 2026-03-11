@@ -1,6 +1,6 @@
 'use client';
 
-import { Mail, MapPin, Phone, Linkedin, Youtube, Twitter } from 'lucide-react';
+import { Mail, MapPin, Phone, Linkedin, Youtube, Twitter, Facebook, Instagram } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -45,12 +45,22 @@ export default function Footer() {
                   label: 'LinkedIn',
                 },
                 {
-                  href: 'https://twitter.com',
-                  icon: Twitter,
-                  label: 'Twitter',
+                  href: 'https://www.facebook.com/athenamea',
+                  icon: Facebook,
+                  label: 'Facebook',
                 },
                 {
-                  href: 'https://youtube.com',
+                  href: 'https://www.instagram.com/athenamea',
+                  icon: Instagram,
+                  label: 'Instagram',
+                },
+                {
+                  href: 'https://x.com/athenamea',
+                  icon: Twitter,
+                  label: 'X (Twitter)',
+                },
+                {
+                  href: 'https://www.youtube.com/@athenamea',
                   icon: Youtube,
                   label: 'YouTube',
                 },
@@ -127,11 +137,12 @@ export default function Footer() {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="mailto:info@athenamea.com"
+                  href="#"
+                  onClick={(e) => { e.preventDefault(); window.location.href = 'mai' + 'lto:' + 'info' + '@' + 'athenamea' + '.com'; }}
                   className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors duration-300"
                 >
                   <Mail className="w-4 h-4 flex-shrink-0" />
-                  <span className="text-sm">info@athenamea.com</span>
+                  <span className="text-sm">info<span className="hidden">null</span>@athenamea.com</span>
                 </a>
               </li>
               <li>

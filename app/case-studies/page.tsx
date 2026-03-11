@@ -57,7 +57,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'grupo-bimbo',
     company: 'Grupo Bimbo',
-    logo: '/client-grupobimbo.jpeg',
+    logo: '/client-grupobimbo.webp',
     industryImage: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80',
     tagline: "World's largest baking company — India market entry via acquisition & leadership build",
     tags: [
@@ -106,7 +106,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'unitedhealth',
     company: 'UnitedHealth Group',
-    logo: '/client-unitedhealthgroup.png',
+    logo: '/client-unitedhealthgroup.webp',
     industryImage: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80',
     tagline: 'Global healthcare leader — India market entry with leadership build & location advisory',
     tags: [
@@ -154,7 +154,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'sophos',
     company: 'Sophos',
-    logo: '/client-sophos.jpeg',
+    logo: '/client-sophos.webp',
     industryImage: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80',
     tagline: 'Global cybersecurity leader — Engineering operations consolidation into India',
     tags: [
@@ -203,7 +203,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'systra',
     company: 'SYSTRA',
-    logo: '/client-systra.jpeg',
+    logo: '/client-systra.webp',
     industryImage: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80',
     tagline: 'Global French engineering firm — India post-acquisition restructuring & leadership build',
     tags: [
@@ -298,7 +298,7 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'bytedance',
     company: 'ByteDance',
-    logo: '/client-bytedance.png',
+    logo: '/client-bytedance.webp',
     industryImage: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80',
     tagline: 'Global tech giant — India monetization team build at massive scale (175+ hires in year one)',
     tags: [

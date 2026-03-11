@@ -3,15 +3,15 @@
 import React from 'react';
 
 const CLIENT_LOGOS = [
-  { src: '/client-novacel.png', alt: 'Novacel' },
-  { src: '/client-sophos.jpeg', alt: 'Sophos' },
-  { src: '/client-bytedance.png', alt: 'ByteDance' },
-  { src: '/client-systra.jpeg', alt: 'Systra' },
-  { src: '/client-akorn.jpeg', alt: 'Akorn' },
-  { src: '/client-grupobimbo.jpeg', alt: 'Grupo Bimbo' },
-  { src: '/client-unitedhealthgroup.png', alt: 'UnitedHealth Group' },
-  { src: '/client-alvic.png', alt: 'ALVIC' },
-  { src: '/client-pragati.jpg', alt: 'Pragati Capitals & Services' },
+  { src: '/client-novacel.webp', alt: 'Novacel' },
+  { src: '/client-sophos.webp', alt: 'Sophos' },
+  { src: '/client-bytedance.webp', alt: 'ByteDance' },
+  { src: '/client-systra.webp', alt: 'Systra' },
+  { src: '/client-akorn.webp', alt: 'Akorn' },
+  { src: '/client-grupobimbo.webp', alt: 'Grupo Bimbo' },
+  { src: '/client-unitedhealthgroup.webp', alt: 'UnitedHealth Group' },
+  { src: '/client-alvic.webp', alt: 'ALVIC' },
+  { src: '/client-pragati.webp', alt: 'Pragati Capitals & Services' },
 ];
 
 export interface FeaturedInProps {
