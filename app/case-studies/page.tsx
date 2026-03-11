@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
 import Footer from '../../components/Footer';
 
@@ -40,6 +40,7 @@ interface CaseStudy {
   tags: { label: string; color: string }[];
   industry: string;
   accent: string;
+  accentSolid: string;
   overview: string;
   scenario: string;
   contributions: string[];
@@ -64,7 +65,8 @@ const CASE_STUDIES: CaseStudy[] = [
     ],
     industry: 'FMCG / Food & Beverage',
     accent: 'from-brand-400 to-amber-500',
-    overview: 'Grupo Bimbo, founded in 1945 and headquartered in Mexico City, is the world\'s largest baking company with operations in over 33 countries across the Americas, Europe, Asia, and Africa. The company runs more than 200 bakeries and 1,500 sales centers, employing approximately 150,000 people. Grupo Bimbo produces over 9,000 products across a portfolio of more than 100 brands, including household names like Bimbo, Marinela, Barcel, and Sara Lee. With one of the largest global distribution networks, spanning over 58,000 direct routes, it reaches more than 3 million retail points worldwide.',
+    accentSolid: '#F8B830',
+    overview: 'Grupo Bimbo, founded in 1945 and headquartered in Mexico City, is the world\'s largest baking company with operations in over 33 countries across the Americas, Europe, Asia, and Africa. The company runs more than 200 bakeries and 1,500 sales centers, employing approximately 150,000 people.',
     scenario: 'Grupo Bimbo entered India through acquisitions of Modern Foods (2016) and later Kitty Bread (2021). They needed support for due diligence and to build leadership for India operations to integrate local assets and accelerate growth.',
     contributions: [
       'Supported strategic due diligence for both acquisitions',
@@ -111,13 +113,14 @@ const CASE_STUDIES: CaseStudy[] = [
     ],
     industry: 'Healthcare / Insurance',
     accent: 'from-sky-400 to-blue-500',
-    overview: 'UnitedHealth Group, founded in 1977 and headquartered in Minnesota, is a global healthcare leader with over 400,000 employees and over 400 billion dollars in annual revenue in 2024. It operates through UnitedHealthcare for insurance and Optum for health services, technology, and pharmacy. Known for its vertically integrated model, UnitedHealth combines insurance, care delivery, and analytics to improve outcomes and reduce costs. Operating in more than 130 countries, it is a major force in value-based healthcare.',
+    accentSolid: '#38bdf8',
+    overview: 'UnitedHealth Group, founded in 1977 and headquartered in Minnesota, is a global healthcare leader with over 400,000 employees and over 400 billion dollars in annual revenue in 2024. It operates through UnitedHealthcare for insurance and Optum for health services, technology, and pharmacy.',
     scenario: 'UnitedHealthcare was entering India and needed to build a strong leadership team. They also lacked clarity on the best city for operations based on talent availability. They sought a partner who could support both executive hiring and provide strategic advice on location feasibility.',
     contributions: [
       'Built the core leadership team in India, including CFO, COO, CSO, Chief Delivery Officer, and multiple delivery heads',
       'Provided strategic advisory on location selection based on talent availability across regions',
-      'Developed and introduced a new Market Entry Advisory practice, offering services like location feasibility and talent topography',
-      'Acted as a trusted partner in both execution (hiring) and strategic insight (market intelligence) during their India entry',
+      'Developed and introduced a new Market Entry Advisory practice',
+      'Acted as a trusted partner in both execution and strategic insight during their India entry',
     ],
     challenges: [
       'Needed to establish a senior leadership team from scratch during India market entry',
@@ -136,7 +139,7 @@ const CASE_STUDIES: CaseStudy[] = [
       'Led to creation of Market Entry Advisory practice',
       'Established long-term strategic and execution partnership',
     ],
-    quote: "Athena's dual expertise in both strategic advisory and execution made them the perfect partner for our India entry. They didn't just help us hire—they helped us make the right strategic decisions.",
+    quote: "Athena's dual expertise in both strategic advisory and execution made them the perfect partner for our India entry.",
     quoteAuthor: 'VP of International Operations, UnitedHealthcare',
     stats: [
       { value: '400K+', label: 'Employees' },
@@ -157,7 +160,8 @@ const CASE_STUDIES: CaseStudy[] = [
     ],
     industry: 'Cybersecurity / Technology',
     accent: 'from-cyan-400 to-teal-500',
-    overview: 'Sophos is a global cybersecurity leader based in the UK, founded in 1985 and headquartered in Abingdon, Oxfordshire. Renowned for its cloud-native platform Sophos Central, it provides integrated endpoint, network, email, and cloud security solutions, anchored by AI-powered threat intelligence. Sophos protects over 500,000 organizations and more than 100 million users across 150+ countries. Acquired by Thoma Bravo in 2020 and bolstered by the acquisition of Secureworks in 2025, Sophos continues to expand its global footprint.',
+    accentSolid: '#22d3ee',
+    overview: 'Sophos is a global cybersecurity leader based in the UK, founded in 1985. Renowned for its cloud-native platform Sophos Central, it protects over 500,000 organizations and more than 100 million users across 150+ countries.',
     scenario: 'Sophos initially partnered with us to hire a Head of HR in the U.K. As Sophos scaled globally, they decided to consolidate their engineering operations into India to improve efficiency and access deep talent pools.',
     contributions: [
       'Initially hired Sophos\'s Head of HR in the U.K.',
@@ -167,12 +171,12 @@ const CASE_STUDIES: CaseStudy[] = [
     ],
     challenges: [
       'Needed to relocate and integrate engineering teams from the U.S., U.K., and Poland into India',
-      'Required seamless hiring for a large volume — initially 150 roles, scaling to 650 within three years',
+      'Required seamless hiring for 150 roles, scaling to 650 within three years',
       'Needed to maintain high-quality talent standards across diverse global functions',
       'Required cultural alignment and consistency with global processes during consolidation',
     ],
     impacts: [
-      'Successfully relocated and ramped up engineering operations in India, scaling from 150 to 650 roles within three years',
+      'Successfully scaled engineering operations from 150 to 650 roles within three years',
       'Enabled consolidation of global engineering talent into a high-capability India hub',
       'Achieved substantial cost and operational efficiencies while maintaining global standards',
       'Strengthened global delivery model and future scalability',
@@ -204,7 +208,8 @@ const CASE_STUDIES: CaseStudy[] = [
     ],
     industry: 'Engineering / Infrastructure',
     accent: 'from-orange-400 to-red-500',
-    overview: 'SYSTRA is a global French engineering and consulting group specializing in mobility infrastructure and public transport systems. Founded in 1957 and headquartered in Paris, the firm offers end-to-end services across rail, metro, tram, bridge, and tunnel projects. With a workforce of over 11,000 professionals, SYSTRA delivers integrated infrastructure solutions in more than 80 countries. Their portfolio includes iconic transit projects such as Dubai Metro, Mumbai Metro, London Crossrail, and high-speed rail systems.',
+    accentSolid: '#fb923c',
+    overview: 'SYSTRA is a global French engineering and consulting group specializing in mobility infrastructure and public transport systems. Founded in 1957, with over 11,000 professionals delivering integrated infrastructure solutions in more than 80 countries.',
     scenario: 'SYSTRA entered the Indian market through the acquisition of a local company. Post-acquisition, they sought to professionalize and restructure their India operations to align with global standards and support future growth.',
     contributions: [
       'Partnered closely with global and regional leadership to define the India org structure',
@@ -230,7 +235,7 @@ const CASE_STUDIES: CaseStudy[] = [
       'Facilitated cultural alignment and long-term capability building',
       'Positioned India as key delivery hub in global portfolio',
     ],
-    quote: "Athena's deep understanding of both global standards and local market dynamics was instrumental in helping us professionalize our India operations. They delivered exactly what we needed.",
+    quote: "Athena's deep understanding of both global standards and local market dynamics was instrumental in helping us professionalize our India operations.",
     quoteAuthor: 'Regional Director, SYSTRA Asia',
     stats: [
       { value: '80+', label: 'Countries' },
@@ -251,7 +256,8 @@ const CASE_STUDIES: CaseStudy[] = [
     ],
     industry: 'Fashion / Retail',
     accent: 'from-pink-400 to-rose-500',
-    overview: 'OVS S.p.A. (formerly Oviesse), founded in 1972 in Venice, is Italy\'s largest and most recognizable fashion retailer. The company operates over 2,200 stores worldwide under brands like OVS, Upim, Blukids, Stefanel, Piombo, and Les Copains. With full vertical integration across design, sourcing, and distribution, OVS blends Italian style and quality with value-driven collections. In 2024, the group recorded approximately €1.63 billion in sales and an adjusted EBITDA of €195 million.',
+    accentSolid: '#f472b6',
+    overview: 'OVS S.p.A., founded in 1972 in Venice, is Italy\'s largest fashion retailer. The company operates over 2,200 stores worldwide. In 2024, the group recorded approximately €1.63 billion in sales.',
     scenario: 'OVS engaged us to set up their India operations. They required senior leadership to establish governance, align with global practices, and spearhead market entry.',
     contributions: [
       'Placed a Managing Director to lead India operation and ensure strategic alignment',
@@ -274,7 +280,7 @@ const CASE_STUDIES: CaseStudy[] = [
       'Enabled smoother operations with proper governance',
       'Positioned OVS India for sustainable growth',
     ],
-    quote: "Athena's deep understanding of retail operations and their ability to find leaders who truly understand our brand was invaluable. They helped us establish a strong foundation for our India entry.",
+    quote: "Athena's deep understanding of retail operations and their ability to find leaders who truly understand our brand was invaluable.",
     quoteAuthor: 'International Expansion Director, OVS',
     stats: [
       { value: '2,200+', label: 'Stores' },
@@ -295,8 +301,9 @@ const CASE_STUDIES: CaseStudy[] = [
     ],
     industry: 'Technology / Social Media',
     accent: 'from-red-400 to-rose-500',
-    overview: 'ByteDance Ltd. is a Chinese digital technology company founded in 2012, headquartered in Beijing. It is the developer of globally popular content platforms including TikTok, Douyin, Toutiao, CapCut, and Lark, reaching users across more than 150 countries and serving over 2.5 billion people. The company employs approximately 150,000 professionals globally. ByteDance is known for its advanced AI-driven recommendation algorithms, which power highly engaging personalized content experiences.',
-    scenario: 'ByteDance entered India aggressively around 2017–2018, launching TikTok and other apps. As the Monetization & Operations team scaled, they needed a right-sized strategy to build and optimize their growing organizational capability — particularly the monetization function where early hires shaped major revenue drivers.',
+    accentSolid: '#f87171',
+    overview: 'ByteDance is a Chinese digital technology company founded in 2012. Developer of TikTok, Douyin, Toutiao, CapCut, and Lark, reaching over 2.5 billion people across 150+ countries with approximately 150,000 employees globally.',
+    scenario: 'ByteDance entered India aggressively around 2017–2018, launching TikTok and other apps. As the Monetization & Operations team scaled, they needed a right-sized strategy to build the monetization function where early hires shaped major revenue drivers.',
     contributions: [
       'Designed and implemented a talent channel strategy optimized for India\'s unique job market',
       'Executed 175+ leadership and core-team hires in the monetization function during the first year',
@@ -304,7 +311,7 @@ const CASE_STUDIES: CaseStudy[] = [
     ],
     challenges: [
       'Lacked established hiring and channel strategies in their new, emerging market (~300M users)',
-      'Urgent need for 175+ monetization roles within the first year, across operations and strategy',
+      'Urgent need for 175+ monetization roles within the first year',
       'Needed to define optimal sourcing channels in a multicultural, multilingual market',
       'Required speed, scale, and precision hiring simultaneously under global governance',
     ],
@@ -312,7 +319,7 @@ const CASE_STUDIES: CaseStudy[] = [
       'Established a high-capacity monetization team with over 175 professionals in year one',
       'Positioned ByteDance to scale monetization operations efficiently in India',
       'Enabled seamless alignment between global product strategy and local execution',
-      'Built out critical foundational team enabling rapid market monetization readiness',
+      'Built critical foundational team enabling rapid market monetization readiness',
     ],
     benefits: [
       'Established high-capacity monetization team with 175+ professionals in year one',
@@ -320,7 +327,7 @@ const CASE_STUDIES: CaseStudy[] = [
       'Enabled seamless alignment between global product strategy and local execution',
       'Built critical foundational team enabling rapid market monetization readiness',
     ],
-    quote: "Athena's ability to execute at scale while maintaining quality was exceptional. They helped us build a world-class monetization team that became the backbone of our India operations.",
+    quote: "Athena's ability to execute at scale while maintaining quality was exceptional.",
     quoteAuthor: 'VP of Monetization & Operations, ByteDance India',
     stats: [
       { value: '175+', label: 'Year 1 Hires' },
@@ -341,8 +348,9 @@ const CASE_STUDIES: CaseStudy[] = [
     ],
     industry: 'Fintech / Payments',
     accent: 'from-indigo-400 to-blue-500',
-    overview: 'Divido is a London-based fintech platform founded in 2014 that enabled banks, retailers, and payment partners to offer white-label Buy Now, Pay Later (BNPL) financing at checkout. Operating in over 10 markets and serving more than 1,000 clients, Divido provided seamlessly integrated, multi-lender retail finance across online, in-store, and mobile channels. In 2021, Divido raised a $30 million Series B round led by HSBC and ING, bringing its total funding to approximately $45 million.',
-    scenario: 'Divido had successfully raised a Series B round and was looking to scale its engineering capabilities. The company sought to establish a product and technology center in India to drive global innovation, support its growing client base, and optimize development costs.',
+    accentSolid: '#818cf8',
+    overview: 'Divido is a London-based fintech platform founded in 2014 that enabled banks, retailers, and payment partners to offer white-label BNPL financing at checkout. Operating in over 10 markets, serving more than 1,000 clients with approximately $45 million in total funding.',
+    scenario: 'Divido had successfully raised a Series B round and was looking to scale its engineering capabilities. The company sought to establish a product and technology center in India to drive global innovation.',
     contributions: [
       'Identified and placed the India Site Leader with deep fintech and scale-up experience',
       'Built the core tech team across frontend, backend, QA, DevOps, and product management',
@@ -351,13 +359,13 @@ const CASE_STUDIES: CaseStudy[] = [
     ],
     challenges: [
       'Needed to build a high-performance tech team from scratch in India',
-      'Required a strong India site leader capable of aligning with UK headquarters and scaling teams rapidly',
+      'Required a strong India site leader capable of aligning with UK headquarters',
       'Tight timelines to hire niche fintech talent across product, engineering, and data functions',
-      'Needed to ensure alignment with agile, fast-paced product roadmap and European compliance standards',
+      'Needed alignment with agile product roadmap and European compliance standards',
     ],
     impacts: [
       'Successfully established India tech hub, enabling faster product iteration and global scalability',
-      'Enabled the client to operate a cost-effective, high-output engineering center',
+      'Enabled a cost-effective, high-output engineering center',
       'Strengthened cross-functional collaboration between UK and India teams',
       'Positioned India as a strategic delivery and innovation center within global operating model',
     ],
@@ -367,7 +375,7 @@ const CASE_STUDIES: CaseStudy[] = [
       'Strengthened cross-functional collaboration between UK and India teams',
       'Positioned India as strategic delivery and innovation center',
     ],
-    quote: "Athena's expertise in building tech teams in India was exactly what we needed. They helped us establish a world-class engineering center that became integral to our global operations.",
+    quote: "Athena's expertise in building tech teams in India was exactly what we needed.",
     quoteAuthor: 'CTO, Divido',
     stats: [
       { value: '$45M', label: 'Total Funding' },
@@ -378,20 +386,354 @@ const CASE_STUDIES: CaseStudy[] = [
   },
 ];
 
+/* ─────────────────────── Carousel Card ─────────────────────── */
+function CarouselCard({ cs, index, isActive, onClick }: {
+  cs: CaseStudy; index: number; isActive: boolean; onClick: () => void;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      className={`group relative flex-shrink-0 w-[320px] md:w-[360px] rounded-3xl overflow-hidden transition-all duration-500 cursor-pointer
+        ${isActive
+          ? 'ring-2 ring-brand-400 shadow-2xl shadow-brand-400/20 scale-[1.03]'
+          : 'hover:shadow-xl hover:-translate-y-1 shadow-lg'
+        }`}
+      style={{ background: 'linear-gradient(135deg, #1a2332 0%, #0f172a 100%)' }}
+    >
+      {/* Accent glow */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        style={{ background: `radial-gradient(circle at 50% 0%, ${cs.accentSolid}15, transparent 70%)` }} />
+
+      {/* Top accent bar */}
+      <div className={`h-1 w-full bg-gradient-to-r ${cs.accent}`} />
+
+      <div className="relative p-6">
+        {/* Number + Industry */}
+        <div className="flex items-center justify-between mb-5">
+          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/30">
+            Case Study {String(index + 1).padStart(2, '0')}
+          </span>
+          <span className="text-[10px] font-medium text-white/40 bg-white/5 px-2.5 py-1 rounded-full">
+            {cs.industry}
+          </span>
+        </div>
+
+        {/* Logo */}
+        <div className={`h-16 w-16 rounded-2xl bg-gradient-to-br ${cs.accent} flex items-center justify-center overflow-hidden mb-5 shadow-lg`}>
+          {cs.logo ? (
+            <img src={cs.logo} alt={cs.company} className="h-full w-full object-cover rounded-2xl" />
+          ) : (
+            <span className="text-white font-display font-bold text-2xl">{cs.company.charAt(0)}</span>
+          )}
+        </div>
+
+        {/* Company name */}
+        <h3 className="font-display text-xl font-bold text-white mb-2 group-hover:text-brand-300 transition-colors">
+          {cs.company}
+        </h3>
+
+        {/* Tagline */}
+        <p className="text-sm text-white/50 leading-relaxed mb-5 line-clamp-2">{cs.tagline}</p>
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-1.5 mb-5">
+          {cs.tags.map((tag) => (
+            <span key={tag.label} className="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-medium text-white/60">
+              {tag.label}
+            </span>
+          ))}
+        </div>
+
+        {/* Stats preview - 2 key stats */}
+        <div className="grid grid-cols-2 gap-3 mb-5">
+          {cs.stats.slice(0, 2).map((s) => (
+            <div key={s.label} className="text-center p-2.5 rounded-xl bg-white/5 border border-white/5">
+              <div className="font-display text-lg font-bold text-white">{s.value}</div>
+              <div className="text-[10px] text-white/30 font-medium mt-0.5">{s.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="flex items-center gap-2 text-sm font-semibold text-brand-400 group-hover:text-brand-300 transition-colors">
+          <span>Read full story</span>
+          <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </div>
+      </div>
+    </button>
+  );
+}
+
+/* ─────────────────────── Full Case Study View ─────────────────────── */
+function CaseStudyFull({ cs, onClose, onPrev, onNext, currentIndex, total }: {
+  cs: CaseStudy; onClose: () => void; onPrev: () => void; onNext: () => void;
+  currentIndex: number; total: number;
+}) {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Close on Escape, navigate with arrows
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') onNext();
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') onPrev();
+    };
+    window.addEventListener('keydown', handler);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', handler);
+      document.body.style.overflow = '';
+    };
+  }, [onClose, onNext, onPrev]);
+
+  // Scroll wheel to navigate
+  const wheelTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const wheelAccum = useRef(0);
+
+  const handleWheel = useCallback((e: React.WheelEvent) => {
+    const el = containerRef.current;
+    if (!el) return;
+    const atBottom = el.scrollHeight - el.scrollTop - el.clientHeight < 2;
+    const atTop = el.scrollTop < 2;
+
+    if (atBottom && e.deltaY > 0) {
+      wheelAccum.current += e.deltaY;
+      if (wheelAccum.current > 150) { onNext(); wheelAccum.current = 0; }
+    } else if (atTop && e.deltaY < 0) {
+      wheelAccum.current += Math.abs(e.deltaY);
+      if (wheelAccum.current > 150) { onPrev(); wheelAccum.current = 0; }
+    } else {
+      wheelAccum.current = 0;
+    }
+
+    if (wheelTimeout.current) clearTimeout(wheelTimeout.current);
+    wheelTimeout.current = setTimeout(() => { wheelAccum.current = 0; }, 300);
+  }, [onNext, onPrev]);
+
+  return (
+    <div className="fixed inset-0 z-50 flex">
+      {/* Backdrop */}
+      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={onClose} />
+
+      {/* Content panel */}
+      <div
+        ref={containerRef}
+        onWheel={handleWheel}
+        className="relative z-10 ml-auto w-full max-w-4xl bg-white overflow-y-auto animate-slideInRight"
+        style={{ animation: 'slideInRight 0.4s cubic-bezier(.16,1,.3,1)' }}
+      >
+        {/* Sticky navigation bar */}
+        <div className="sticky top-0 z-30 bg-white/90 backdrop-blur-xl border-b border-slate-100">
+          <div className="flex items-center justify-between px-6 lg:px-10 py-3">
+            <div className="flex items-center gap-3">
+              <div className={`h-8 w-8 rounded-lg bg-gradient-to-br ${cs.accent} flex items-center justify-center overflow-hidden`}>
+                {cs.logo ? (
+                  <img src={cs.logo} alt="" className="h-full w-full object-cover rounded-lg" />
+                ) : (
+                  <span className="text-white font-bold text-xs">{cs.company.charAt(0)}</span>
+                )}
+              </div>
+              <span className="font-display font-bold text-slate-900 text-sm">{cs.company}</span>
+              <span className="text-xs text-slate-400 hidden sm:inline">·  {cs.industry}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              {/* Prev / Next */}
+              <button onClick={onPrev} disabled={currentIndex === 0}
+                className="h-8 w-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-700 hover:border-slate-300 transition-all disabled:opacity-30 disabled:cursor-not-allowed">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
+              </button>
+              <span className="text-xs text-slate-400 font-medium w-12 text-center">{currentIndex + 1} / {total}</span>
+              <button onClick={onNext} disabled={currentIndex === total - 1}
+                className="h-8 w-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-700 hover:border-slate-300 transition-all disabled:opacity-30 disabled:cursor-not-allowed">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+              </button>
+              {/* Close */}
+              <button onClick={onClose}
+                className="ml-2 h-8 w-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-700 hover:border-slate-300 transition-all">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Hero */}
+        <div className="relative py-16 lg:py-20 overflow-hidden" style={{ background: 'linear-gradient(135deg, #1a2332 0%, #0f172a 100%)' }}>
+          <div className="absolute inset-0 opacity-[0.04]"
+            style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+          <div className="absolute inset-0" style={{ background: `radial-gradient(ellipse at 30% 50%, ${cs.accentSolid}10, transparent 70%)` }} />
+
+          <div className="relative z-10 px-6 lg:px-10">
+            <div className="flex items-start gap-5 mb-8">
+              <div className={`flex-shrink-0 h-20 w-20 rounded-2xl bg-gradient-to-br ${cs.accent} flex items-center justify-center overflow-hidden shadow-2xl ring-4 ring-white/10`}>
+                {cs.logo ? (
+                  <img src={cs.logo} alt={cs.company} className="h-full w-full object-cover rounded-2xl" />
+                ) : (
+                  <span className="text-white font-display font-bold text-3xl">{cs.company.charAt(0)}</span>
+                )}
+              </div>
+              <div>
+                <h1 className="font-display text-4xl lg:text-5xl font-bold text-white">{cs.company}</h1>
+                <p className="text-white/40 text-lg mt-1">{cs.industry}</p>
+              </div>
+            </div>
+
+            <p className="text-white/60 text-lg leading-relaxed max-w-2xl mb-8">{cs.tagline}</p>
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-2 mb-10">
+              {cs.tags.map((tag) => (
+                <span key={tag.label} className={`px-4 py-1.5 rounded-full border text-xs font-semibold ${tag.color}`}>
+                  {tag.label}
+                </span>
+              ))}
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {cs.stats.map((s) => (
+                <div key={s.label} className="text-center p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                  <div className="font-display text-2xl font-bold text-white">{s.value}</div>
+                  <div className="text-xs text-white/40 font-medium mt-1">{s.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Company Overview */}
+        <div className="px-6 lg:px-10 py-10 border-b border-slate-100">
+          <span className="section-label">Company Overview</span>
+          <p className="text-slate-600 leading-relaxed mt-4 text-[15px]">{cs.overview}</p>
+        </div>
+
+        {/* The Scenario */}
+        <div className="px-6 lg:px-10 py-10 border-b border-slate-100">
+          <h3 className="font-display text-2xl font-bold text-slate-900 mb-4">The Scenario</h3>
+          <p className="text-slate-600 leading-relaxed mb-8 text-[15px]">{cs.scenario}</p>
+
+          <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-amber-600 mb-4">Key Challenges</h4>
+          <div className="space-y-3">
+            {cs.challenges.map((c, i) => (
+              <div key={i} className="flex gap-3 p-4 rounded-xl bg-amber-50/50 border border-amber-100/50">
+                <span className="flex-shrink-0 h-7 w-7 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-xs font-bold">{i + 1}</span>
+                <p className="text-slate-600 text-sm leading-relaxed">{c}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Our Contribution */}
+        <div className="px-6 lg:px-10 py-10 border-b border-slate-100 bg-slate-50/50">
+          <h3 className="font-display text-2xl font-bold text-slate-900 mb-6">Our Contribution</h3>
+          <div className="grid md:grid-cols-2 gap-4">
+            {cs.contributions.map((item, i) => {
+              const colors = ['text-brand-400', 'text-cyan-500', 'text-emerald-500', 'text-violet-500'];
+              const icons = ['ri-shield-check-line', 'ri-user-star-line', 'ri-team-line', 'ri-bar-chart-box-line'];
+              return (
+                <div key={i} className="flex gap-3 p-4 rounded-xl bg-white border border-slate-100 shadow-sm">
+                  <div className="flex-shrink-0 h-9 w-9 rounded-lg bg-slate-50 flex items-center justify-center">
+                    <i className={`${icons[i % 4]} text-lg ${colors[i % 4]}`} />
+                  </div>
+                  <p className="text-slate-600 text-sm leading-relaxed">{item}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Impact & Results */}
+        <div className="px-6 lg:px-10 py-10 border-b border-slate-100">
+          <h3 className="font-display text-2xl font-bold text-slate-900 mb-6">Impact & Results</h3>
+          <div className="space-y-3 mb-10">
+            {cs.impacts.map((item, i) => {
+              const borderColors = ['border-l-brand-400', 'border-l-cyan-400', 'border-l-emerald-400', 'border-l-violet-400'];
+              return (
+                <div key={i} className={`p-4 border border-slate-100 border-l-4 ${borderColors[i % 4]} rounded-xl bg-white`}>
+                  <p className="text-slate-600 text-sm leading-relaxed">{item}</p>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Quote */}
+          <div className="p-8 rounded-2xl bg-gradient-to-br from-midnight-900 to-slate-900 text-white relative overflow-hidden">
+            <div className="absolute top-4 left-4 text-5xl text-brand-400/15 font-serif">&ldquo;</div>
+            <blockquote className="relative z-10 text-lg text-white/80 leading-relaxed italic mb-5 pl-2">
+              &ldquo;{cs.quote}&rdquo;
+            </blockquote>
+            <div className="flex items-center gap-3 pl-2">
+              <div className="h-10 w-10 rounded-full bg-brand-400 flex items-center justify-center">
+                <i className="ri-user-line text-midnight-900" />
+              </div>
+              <div>
+                <div className="text-sm font-semibold text-white">{cs.quoteAuthor.split(',')[0]}</div>
+                <div className="text-xs text-white/50">{cs.quoteAuthor.split(',').slice(1).join(',').trim()}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Navigation footer */}
+        <div className="px-6 lg:px-10 py-8 flex items-center justify-between bg-slate-50">
+          <button onClick={onPrev} disabled={currentIndex === 0}
+            className="flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-slate-800 transition-colors disabled:opacity-30 disabled:cursor-not-allowed">
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
+            Previous
+          </button>
+          <Link href="/#consultation" className="btn-primary !rounded-full !px-6 !py-3 text-sm font-semibold">
+            Book a Strategy Call
+          </Link>
+          <button onClick={onNext} disabled={currentIndex === total - 1}
+            className="flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-slate-800 transition-colors disabled:opacity-30 disabled:cursor-not-allowed">
+            Next
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+          </button>
+        </div>
+      </div>
+
+      <style jsx>{`
+        @keyframes slideInRight {
+          from { transform: translateX(100%); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+      `}</style>
+    </div>
+  );
+}
+
 /* ─────────────────────── Main Page ─────────────────────── */
 export default function CaseStudiesPage() {
-  const [activeStudy, setActiveStudy] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<'scenario' | 'contribution' | 'impact'>('scenario');
-  const detailRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
-  const activeCase = CASE_STUDIES.find((cs) => cs.id === activeStudy);
+  const checkScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 10);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
+  }, []);
 
-  // Scroll to detail when a case study is selected
   useEffect(() => {
-    if (activeStudy && detailRef.current) {
-      detailRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }, [activeStudy]);
+    const el = scrollRef.current;
+    if (!el) return;
+    checkScroll();
+    el.addEventListener('scroll', checkScroll, { passive: true });
+    window.addEventListener('resize', checkScroll);
+    return () => {
+      el.removeEventListener('scroll', checkScroll);
+      window.removeEventListener('resize', checkScroll);
+    };
+  }, [checkScroll]);
+
+  const scroll = (dir: 'left' | 'right') => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir === 'left' ? -380 : 380, behavior: 'smooth' });
+  };
 
   return (
     <main className="w-full bg-white">
@@ -406,7 +748,6 @@ export default function CaseStudiesPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/90 via-midnight-900/90 to-teal-900/80" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
         <div aria-hidden className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-emerald-400/10 blur-[120px] animate-pulse" />
-        <div aria-hidden className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-brand-400/8 blur-[100px] animate-pulse" style={{ animationDelay: '1.5s' }} />
 
         <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12">
           <div className="mb-6">
@@ -444,279 +785,93 @@ export default function CaseStudiesPage() {
       </section>
 
 
-      {/* ━━━━━━━━━━━━━━━━━ CASE STUDY CARDS GRID ━━━━━━━━━━━━━━━━━ */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-6xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-14">
-            <span className="section-label">Our Work</span>
-            <h2 className="font-display text-3xl lg:text-4xl font-bold text-slate-900 mt-4">
-              Select a Case Study to Explore
-            </h2>
-            <p className="text-slate-500 mt-3 max-w-2xl mx-auto">
-              Click on any company below to see the full story — from challenge to impact.
-            </p>
+      {/* ━━━━━━━━━━━━━━━━━ CAROUSEL SECTION ━━━━━━━━━━━━━━━━━ */}
+      <section className="py-20 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
+        {/* Subtle pattern */}
+        <div className="absolute inset-0 dot-pattern opacity-40" />
+
+        <div className="relative z-10">
+          {/* Header */}
+          <div className="max-w-6xl mx-auto px-6 lg:px-12 mb-12">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+              <div>
+                <span className="section-label">Our Work</span>
+                <h2 className="font-display text-3xl lg:text-4xl font-bold text-slate-900 mt-4">
+                  Explore Our Case Studies
+                </h2>
+                <p className="text-slate-500 mt-3 max-w-lg">
+                  Scroll through to explore, or click any card to read the full story.
+                </p>
+              </div>
+
+              {/* Scroll controls */}
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => scroll('left')}
+                  disabled={!canScrollLeft}
+                  className="h-11 w-11 rounded-full border-2 border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:text-slate-800 hover:border-slate-300 hover:shadow-md transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                >
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                </button>
+                <button
+                  onClick={() => scroll('right')}
+                  disabled={!canScrollRight}
+                  className="h-11 w-11 rounded-full border-2 border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:text-slate-800 hover:border-slate-300 hover:shadow-md transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                >
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+                </button>
+              </div>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {CASE_STUDIES.map((cs, idx) => (
-              <button
-                key={cs.id}
-                onClick={() => {
-                  setActiveStudy(activeStudy === cs.id ? null : cs.id);
-                  setActiveTab('scenario');
-                }}
-                className={`group relative text-left rounded-2xl border-2 transition-all duration-500 overflow-hidden ${
-                  activeStudy === cs.id
-                    ? 'border-brand-400 shadow-lg shadow-brand-400/15 bg-white ring-2 ring-brand-400/20'
-                    : 'border-slate-200 bg-white hover:border-brand-300 hover:shadow-lg hover:-translate-y-1'
-                }`}
-              >
-                {/* Active indicator */}
-                {activeStudy === cs.id && (
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-400 to-amber-400" />
-                )}
+          {/* Horizontal scroll carousel */}
+          <div className="relative">
+            {/* Left fade */}
+            {canScrollLeft && (
+              <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
+            )}
+            {/* Right fade */}
+            {canScrollRight && (
+              <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+            )}
 
-                <div className="p-6">
-                  {/* Logo + company */}
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className={`flex-shrink-0 h-14 w-14 rounded-xl bg-gradient-to-br ${cs.accent} flex items-center justify-center overflow-hidden`}>
-                      {cs.logo ? (
-                        <img src={cs.logo} alt={cs.company} className="h-full w-full object-cover rounded-xl" />
-                      ) : (
-                        <span className="text-white font-display font-bold text-lg">{cs.company.charAt(0)}</span>
-                      )}
-                    </div>
-                    <div>
-                      <h3 className="font-display text-lg font-bold text-slate-900 group-hover:text-brand-600 transition-colors">
-                        {cs.company}
-                      </h3>
-                      <span className="text-xs text-slate-400 font-medium">{cs.industry}</span>
-                    </div>
-                  </div>
-
-                  {/* Tagline */}
-                  <p className="text-sm text-slate-500 leading-relaxed mb-4 line-clamp-2">{cs.tagline}</p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2">
-                    {cs.tags.map((tag) => (
-                      <span key={tag.label} className={`px-3 py-1 rounded-full border text-xs font-semibold ${tag.color}`}>
-                        {tag.label}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Number badge */}
-                  <div className="absolute top-4 right-4 h-8 w-8 rounded-full bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-400">
-                    {String(idx + 1).padStart(2, '0')}
-                  </div>
+            <div
+              ref={scrollRef}
+              className="flex gap-6 overflow-x-auto pb-6 px-6 lg:px-12 scrollbar-hide"
+              style={{ scrollSnapType: 'x mandatory', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {CASE_STUDIES.map((cs, idx) => (
+                <div key={cs.id} style={{ scrollSnapAlign: 'start' }}>
+                  <CarouselCard
+                    cs={cs}
+                    index={idx}
+                    isActive={activeIndex === idx}
+                    onClick={() => setActiveIndex(idx)}
+                  />
                 </div>
-              </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Progress dots */}
+          <div className="flex justify-center gap-2 mt-8">
+            {CASE_STUDIES.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => {
+                  setActiveIndex(idx);
+                  // Also scroll the carousel to show this card
+                  const el = scrollRef.current;
+                  if (el) el.scrollTo({ left: idx * 380, behavior: 'smooth' });
+                }}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  activeIndex === idx ? 'w-8 bg-brand-400' : 'w-2 bg-slate-300 hover:bg-slate-400'
+                }`}
+              />
             ))}
           </div>
         </div>
       </section>
-
-
-      {/* ━━━━━━━━━━━━━━━━━ EXPANDED DETAIL ━━━━━━━━━━━━━━━━━ */}
-      {activeCase && (
-        <section ref={detailRef} className="scroll-mt-24 border-t-4 border-brand-400">
-          {/* Detail Header */}
-          <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-midnight-900 py-16 overflow-hidden relative">
-            <div aria-hidden className="absolute inset-0 opacity-[0.04]"
-              style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
-            <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12">
-              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-                <div className="flex items-center gap-5">
-                  <div className={`flex-shrink-0 h-20 w-20 rounded-2xl bg-gradient-to-br ${activeCase.accent} flex items-center justify-center overflow-hidden shadow-xl`}>
-                    {activeCase.logo ? (
-                      <img src={activeCase.logo} alt={activeCase.company} className="h-full w-full object-cover rounded-2xl" />
-                    ) : (
-                      <span className="text-white font-display font-bold text-3xl">{activeCase.company.charAt(0)}</span>
-                    )}
-                  </div>
-                  <div>
-                    <h2 className="font-display text-4xl lg:text-5xl font-bold text-white">{activeCase.company}</h2>
-                    <p className="text-white/50 text-lg mt-1">{activeCase.industry}</p>
-                  </div>
-                </div>
-                <button
-                  onClick={() => setActiveStudy(null)}
-                  className="self-start lg:self-center px-5 py-2.5 rounded-full border border-white/20 text-white/70 text-sm font-medium hover:bg-white/5 hover:text-white transition-all"
-                >
-                  <i className="ri-close-line mr-1" /> Close Case Study
-                </button>
-              </div>
-
-              {/* Stats row */}
-              <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
-                {activeCase.stats.map((s) => (
-                  <div key={s.label} className="text-center p-4 rounded-xl bg-white/5 border border-white/10">
-                    <div className="font-display text-2xl font-bold text-white">{s.value}</div>
-                    <div className="text-xs text-white/40 font-medium mt-1">{s.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Company Overview */}
-          <div className="py-12 bg-white border-b border-slate-100">
-            <div className="max-w-6xl mx-auto px-6 lg:px-12">
-              <div className="grid lg:grid-cols-3 gap-8">
-                <div className="lg:col-span-2">
-                  <span className="section-label">Company Overview</span>
-                  <p className="text-slate-600 leading-relaxed mt-4">{activeCase.overview}</p>
-                </div>
-                <div>
-                  <div className="flex flex-wrap gap-2 lg:justify-end">
-                    {activeCase.tags.map((tag) => (
-                      <span key={tag.label} className={`px-4 py-2 rounded-full border text-sm font-semibold ${tag.color}`}>
-                        {tag.label}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Tabbed Content: Scenario / Contribution / Impact */}
-          <div className="bg-slate-50">
-            {/* Tab nav */}
-            <div className="border-b border-slate-200 bg-white sticky top-[81px] z-20">
-              <div className="max-w-6xl mx-auto px-6 lg:px-12">
-                <nav className="flex gap-1 -mb-px">
-                  {([
-                    { id: 'scenario' as const, label: 'The Scenario', icon: 'ri-focus-3-line' },
-                    { id: 'contribution' as const, label: 'Our Contribution', icon: 'ri-service-line' },
-                    { id: 'impact' as const, label: 'Impact & Results', icon: 'ri-bar-chart-grouped-line' },
-                  ]).map((tab) => (
-                    <button
-                      key={tab.id}
-                      onClick={() => setActiveTab(tab.id)}
-                      className={`flex items-center gap-2 px-5 py-4 text-sm font-semibold border-b-2 transition-all duration-300 ${
-                        activeTab === tab.id
-                          ? 'border-brand-400 text-brand-700'
-                          : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300'
-                      }`}
-                    >
-                      <i className={tab.icon} />
-                      {tab.label}
-                    </button>
-                  ))}
-                </nav>
-              </div>
-            </div>
-
-            {/* Tab content */}
-            <div className="max-w-6xl mx-auto px-6 lg:px-12 py-14">
-
-              {/* SCENARIO TAB */}
-              {activeTab === 'scenario' && (
-                <div className="grid lg:grid-cols-2 gap-12">
-                  <div>
-                    <h3 className="font-display text-2xl font-bold text-slate-900 mb-4">The Scenario</h3>
-                    <p className="text-slate-600 leading-relaxed mb-8">{activeCase.scenario}</p>
-
-                    <h4 className="text-xs font-bold uppercase tracking-[0.15em] text-amber-600 mb-4">Key Challenges</h4>
-                    <div className="space-y-3">
-                      {activeCase.challenges.map((c, i) => (
-                        <div key={i} className="flex gap-3 p-4 rounded-xl bg-white border border-slate-100 shadow-sm">
-                          <span className="flex-shrink-0 h-7 w-7 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-xs font-bold">{i + 1}</span>
-                          <p className="text-slate-600 text-sm leading-relaxed">{c}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Quote on right */}
-                  <div className="flex items-center">
-                    <div className="relative p-8 rounded-2xl bg-gradient-to-br from-midnight-900 to-slate-900 text-white">
-                      <i className="ri-double-quotes-l text-5xl text-brand-400/20 absolute top-4 left-4" />
-                      <blockquote className="relative z-10 text-lg text-white/80 leading-relaxed italic mb-6 pl-2">
-                        &ldquo;{activeCase.quote}&rdquo;
-                      </blockquote>
-                      <div className="flex items-center gap-3 pl-2">
-                        <div className="h-10 w-10 rounded-full bg-brand-400 flex items-center justify-center">
-                          <i className="ri-user-line text-midnight-900" />
-                        </div>
-                        <div>
-                          <div className="text-sm font-semibold text-white">{activeCase.quoteAuthor.split(',')[0]}</div>
-                          <div className="text-xs text-white/50">{activeCase.quoteAuthor.split(',').slice(1).join(',').trim()}</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* CONTRIBUTION TAB */}
-              {activeTab === 'contribution' && (
-                <div>
-                  <h3 className="font-display text-2xl font-bold text-slate-900 mb-8">Our Contribution</h3>
-                  <div className="grid md:grid-cols-2 gap-5">
-                    {activeCase.contributions.map((item, i) => {
-                      const colors = ['text-brand-400', 'text-cyan-500', 'text-emerald-500', 'text-violet-500'];
-                      const icons = ['ri-shield-check-line', 'ri-user-star-line', 'ri-team-line', 'ri-bar-chart-box-line'];
-                      return (
-                        <div key={i} className="flex gap-4 p-5 rounded-xl bg-white border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-                          <div className="flex-shrink-0 h-10 w-10 rounded-xl bg-slate-50 flex items-center justify-center">
-                            <i className={`${icons[i % 4]} text-xl ${colors[i % 4]}`} />
-                          </div>
-                          <p className="text-slate-600 text-sm leading-relaxed">{item}</p>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-
-              {/* IMPACT TAB */}
-              {activeTab === 'impact' && (
-                <div>
-                  <h3 className="font-display text-2xl font-bold text-slate-900 mb-8">Impact & Results</h3>
-
-                  {/* Impact cards */}
-                  <div className="grid md:grid-cols-2 gap-5 mb-12">
-                    {activeCase.impacts.map((item, i) => {
-                      const borderColors = ['border-l-brand-400', 'border-l-cyan-400', 'border-l-emerald-400', 'border-l-violet-400'];
-                      return (
-                        <div key={i} className={`p-5 border border-slate-100 border-l-4 ${borderColors[i % 4]} rounded-xl bg-white shadow-sm`}>
-                          <p className="text-slate-600 text-sm leading-relaxed">{item}</p>
-                        </div>
-                      );
-                    })}
-                  </div>
-
-                  {/* Key Benefits */}
-                  <div className="p-8 rounded-2xl bg-gradient-to-br from-slate-900 to-midnight-900 text-white">
-                    <h4 className="font-display text-xl font-bold mb-6">Key Benefits</h4>
-                    <div className="grid md:grid-cols-2 gap-4">
-                      {activeCase.benefits.map((b, i) => (
-                        <div key={i} className="flex gap-3 items-start">
-                          <div className="flex-shrink-0 mt-0.5 h-6 w-6 rounded-full bg-brand-400 flex items-center justify-center">
-                            <i className="ri-check-line text-midnight-900 text-sm font-bold" />
-                          </div>
-                          <p className="text-white/70 text-sm leading-relaxed">{b}</p>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Quote */}
-                    <div className="mt-8 pt-8 border-t border-white/10">
-                      <blockquote className="text-white/60 italic leading-relaxed">
-                        &ldquo;{activeCase.quote}&rdquo;
-                      </blockquote>
-                      <div className="text-sm text-brand-400 font-semibold mt-3">— {activeCase.quoteAuthor}</div>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </section>
-      )}
 
 
       {/* ━━━━━━━━━━━━━━━━━ CTA ━━━━━━━━━━━━━━━━━ */}
@@ -745,6 +900,24 @@ export default function CaseStudiesPage() {
       </section>
 
       <Footer />
+
+      {/* ━━━━━━━━━━━━━━━━━ FULL CASE STUDY OVERLAY ━━━━━━━━━━━━━━━━━ */}
+      {activeIndex !== null && (
+        <CaseStudyFull
+          cs={CASE_STUDIES[activeIndex]}
+          currentIndex={activeIndex}
+          total={CASE_STUDIES.length}
+          onClose={() => setActiveIndex(null)}
+          onPrev={() => setActiveIndex((prev) => Math.max(0, (prev ?? 0) - 1))}
+          onNext={() => setActiveIndex((prev) => Math.min(CASE_STUDIES.length - 1, (prev ?? 0) + 1))}
+        />
+      )}
+
+      {/* Hide scrollbar for carousel */}
+      <style jsx global>{`
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+      `}</style>
     </main>
   );
 }
