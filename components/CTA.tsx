@@ -247,11 +247,12 @@ export default function CTA() {
                 {/* First & Last Name Row */}
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="flex flex-col">
-                    <label className="text-sm font-semibold text-slate-700 mb-2">
+                    <label htmlFor="firstName" className="text-sm font-semibold text-slate-700 mb-2">
                       First Name <span className="text-rose-500">*</span>
                     </label>
                     <input
                       type="text"
+                      id="firstName"
                       name="firstName"
                       value={formData.firstName}
                       onChange={handleChange}
@@ -261,11 +262,12 @@ export default function CTA() {
                     />
                   </div>
                   <div className="flex flex-col">
-                    <label className="text-sm font-semibold text-slate-700 mb-2">
+                    <label htmlFor="lastName" className="text-sm font-semibold text-slate-700 mb-2">
                       Last Name <span className="text-rose-500">*</span>
                     </label>
                     <input
                       type="text"
+                      id="lastName"
                       name="lastName"
                       value={formData.lastName}
                       onChange={handleChange}
@@ -278,11 +280,12 @@ export default function CTA() {
 
                 {/* Company Name */}
                 <div className="flex flex-col">
-                  <label className="text-sm font-semibold text-slate-700 mb-2">
+                  <label htmlFor="company" className="text-sm font-semibold text-slate-700 mb-2">
                     Company Name <span className="text-rose-500">*</span>
                   </label>
                   <input
                     type="text"
+                    id="company"
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
@@ -295,11 +298,12 @@ export default function CTA() {
                 {/* Email & Phone Row */}
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="flex flex-col">
-                    <label className="text-sm font-semibold text-slate-700 mb-2">
+                    <label htmlFor="email" className="text-sm font-semibold text-slate-700 mb-2">
                       Email Address <span className="text-rose-500">*</span>
                     </label>
                     <input
                       type="email"
+                      id="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
@@ -309,11 +313,12 @@ export default function CTA() {
                     />
                   </div>
                   <div className="flex flex-col">
-                    <label className="text-sm font-semibold text-slate-700 mb-2">
+                    <label htmlFor="phone" className="text-sm font-semibold text-slate-700 mb-2">
                       Phone Number
                     </label>
                     <input
                       type="tel"
+                      id="phone"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
@@ -326,10 +331,11 @@ export default function CTA() {
                 {/* Target Market & Industry Row */}
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="flex flex-col">
-                    <label className="text-sm font-semibold text-slate-700 mb-2">
+                    <label htmlFor="targetMarket" className="text-sm font-semibold text-slate-700 mb-2">
                       Target Market <span className="text-rose-500">*</span>
                     </label>
                     <select
+                      id="targetMarket"
                       name="targetMarket"
                       value={formData.targetMarket}
                       onChange={handleChange}
@@ -343,10 +349,11 @@ export default function CTA() {
                     </select>
                   </div>
                   <div className="flex flex-col">
-                    <label className="text-sm font-semibold text-slate-700 mb-2">
+                    <label htmlFor="industry" className="text-sm font-semibold text-slate-700 mb-2">
                       Industry
                     </label>
                     <select
+                      id="industry"
                       name="industry"
                       value={formData.industry}
                       onChange={handleChange}
@@ -373,18 +380,20 @@ export default function CTA() {
                   <div className="flex items-center justify-between mb-3">
                     <button
                       type="button"
+                      aria-label="Previous month"
                       onClick={() => setCalMonth(new Date(calMonth.getFullYear(), calMonth.getMonth() - 1, 1))}
                       className="h-8 w-8 rounded-lg hover:bg-slate-200 flex items-center justify-center transition-colors text-slate-600"
                     >
-                      <i className="ri-arrow-left-s-line text-lg" />
+                      <i className="ri-arrow-left-s-line text-lg" aria-hidden="true" />
                     </button>
                     <span className="text-sm font-semibold text-slate-800">{monthLabel}</span>
                     <button
                       type="button"
+                      aria-label="Next month"
                       onClick={() => setCalMonth(new Date(calMonth.getFullYear(), calMonth.getMonth() + 1, 1))}
                       className="h-8 w-8 rounded-lg hover:bg-slate-200 flex items-center justify-center transition-colors text-slate-600"
                     >
-                      <i className="ri-arrow-right-s-line text-lg" />
+                      <i className="ri-arrow-right-s-line text-lg" aria-hidden="true" />
                     </button>
                   </div>
 

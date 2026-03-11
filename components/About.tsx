@@ -143,8 +143,10 @@ export default function About() {
                   preload="metadata"
                   poster=""
                   playsInline
+                  aria-label="ATHENA MEA company overview video"
                 >
                   <source src="/about-video.mp4" type="video/mp4" />
+                  <track kind="captions" src="" label="English" srcLang="en" default />
                   Your browser does not support the video tag.
                 </video>
 

@@ -9,19 +9,34 @@ import Process from '../components/Process';
 import CTA from '../components/CTA';
 import Footer from '../components/Footer';
 import FeaturedIn from '../components/LogoCrousel';
+import { OrganizationJsonLd, WebSiteJsonLd } from '../components/JsonLd';
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <article className="min-h-screen">
+      <OrganizationJsonLd />
+      <WebSiteJsonLd />
       <Hero />
       <FeaturedIn />
-      <Statistics />
-      <Services />
-      <About />
-      <Testimonials />
-      <Process />
-      <CTA />
+      <section aria-label="Company statistics">
+        <Statistics />
+      </section>
+      <section aria-label="Our services">
+        <Services />
+      </section>
+      <section aria-label="About ATHENA MEA">
+        <About />
+      </section>
+      <section aria-label="Client testimonials">
+        <Testimonials />
+      </section>
+      <section aria-label="Our process">
+        <Process />
+      </section>
+      <section aria-label="Book a consultation" id="consultation">
+        <CTA />
+      </section>
       <Footer />
-    </div>
+    </article>
   );
 }

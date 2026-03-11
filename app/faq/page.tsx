@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import Footer from '@/components/Footer';
+import { FAQPageJsonLd, BreadcrumbJsonLd } from '@/components/JsonLd';
 
 interface FAQItem {
   id: string;
@@ -212,8 +213,19 @@ export default function FAQPage() {
 
   const totalFaqs = categories.reduce((sum, c) => sum + c.items.length, 0);
 
+  // Collect all FAQs for JSON-LD
+  const allFaqsForSchema = categories.flatMap(c => c.items.map(item => ({
+    question: item.question,
+    answer: item.answer,
+  })));
+
   return (
-    <main className="relative min-h-screen bg-white">
+    <div className="relative min-h-screen bg-white">
+      <FAQPageJsonLd questions={allFaqsForSchema} />
+      <BreadcrumbJsonLd items={[
+        { name: "Home", url: "https://www.athenamea.com" },
+        { name: "FAQ", url: "https://www.athenamea.com/faq" },
+      ]} />
       {/* ── HERO BANNER ── */}
       <section className="relative py-32 overflow-hidden">
         {/* Thematic background image */}
@@ -549,6 +561,6 @@ export default function FAQPage() {
       </section>
 
       <Footer />
-    </main>
+    </div>
   );
 }

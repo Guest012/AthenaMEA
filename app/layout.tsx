@@ -32,9 +32,66 @@ const pacifico = Pacifico({
   variable: '--font-pacifico',
 });
 
+const siteUrl = "https://www.athenamea.com";
+
 export const metadata: Metadata = {
-  title: "ATHENA MEA — Market Entry Advisory for India & the Middle East",
-  description: "Strategic market entry, executive search & consulting for global businesses expanding into India and the Middle East.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "ATHENA MEA — Market Entry Advisory for India & Middle East",
+    template: "%s | ATHENA MEA",
+  },
+  description: "Strategic market entry advisory, executive search and consulting for global businesses expanding into India, UAE and the Middle East. Offices in Gurgaon, Dubai and Riyadh.",
+  keywords: ["market entry advisory", "India market entry", "UAE market entry", "Middle East consulting", "executive search India", "executive search UAE", "business expansion India", "business expansion Middle East", "ATHENA MEA", "market entry strategy"],
+  authors: [{ name: "ATHENA Market Entry Advisors" }],
+  creator: "ATHENA Market Entry Advisors",
+  publisher: "ATHENA Market Entry Advisors",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName: "ATHENA MEA",
+    title: "ATHENA MEA — Market Entry Advisory for India & Middle East",
+    description: "Strategic market entry advisory, executive search and consulting for global businesses expanding into India, UAE and the Middle East.",
+    images: [
+      {
+        url: `${siteUrl}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: "ATHENA MEA — Market Entry Advisory",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ATHENA MEA — Market Entry Advisory for India & Middle East",
+    description: "Strategic market entry advisory, executive search and consulting for global businesses expanding into India, UAE and the Middle East.",
+    images: [`${siteUrl}/og-image.png`],
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
+  other: {
+    "llms": "/llms.txt",
+  },
 };
 
 export default function RootLayout({
@@ -44,12 +101,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
+      <head>
+        <link rel="llms" href="/llms.txt" />
+      </head>
       <body
         className={`${dmSans.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${pacifico.variable} font-sans antialiased`}
       >
-        <Navbar />
-        {children}
-
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:bg-brand-400 focus:text-midnight-900 focus:px-4 focus:py-2 focus:rounded-md focus:font-semibold">
+          Skip to main content
+        </a>
+        <header role="banner">
+          <Navbar />
+        </header>
+        <main id="main-content" role="main">
+          {children}
+        </main>
       </body>
     </html>
   );

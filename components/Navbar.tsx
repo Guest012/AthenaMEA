@@ -131,7 +131,7 @@ export default function Navbar() {
 
                             {/* CTA Button */}
                             <a
-                                href="#book"
+                                href="/#consultation"
                                 className="btn-primary ml-6 !rounded-full !px-7 !py-2.5 !text-[15px] font-semibold shadow-lg hover:shadow-2xl"
                             >
                                 Get Started
@@ -180,7 +180,7 @@ export default function Navbar() {
                                 <MobileNavLink href="/case-studies" onClick={() => setMobileOpen(false)}>Case Studies</MobileNavLink>
                                 <MobileNavLink href="/insights" onClick={() => setMobileOpen(false)}>Insights</MobileNavLink>
                                 <div className="pt-6 pb-4">
-                                    <a href="#book" className="btn-primary w-full justify-center font-semibold">Get Started</a>
+                                    <a href="/#consultation" className="btn-primary w-full justify-center font-semibold">Get Started</a>
                                 </div>
                             </div>
                         </div>
