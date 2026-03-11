@@ -241,23 +241,7 @@ export default function FAQPage() {
             Everything you need to know about expanding into India and the Middle East
           </p>
 
-          {/* Quick stats */}
-          <div className="reveal flex items-center justify-center gap-8 pt-4" ref={(el) => addRef(el, 3)}>
-            <div className="text-center">
-              <div className="font-display text-3xl font-bold text-brand-400">{totalFaqs}</div>
-              <div className="text-white/40 text-xs uppercase tracking-wider mt-1">Questions</div>
-            </div>
-            <div className="w-px h-10 bg-white/10" />
-            <div className="text-center">
-              <div className="font-display text-3xl font-bold text-brand-400">{categories.length}</div>
-              <div className="text-white/40 text-xs uppercase tracking-wider mt-1">Categories</div>
-            </div>
-            <div className="w-px h-10 bg-white/10" />
-            <div className="text-center">
-              <div className="font-display text-3xl font-bold text-brand-400">2</div>
-              <div className="text-white/40 text-xs uppercase tracking-wider mt-1">Regions</div>
-            </div>
-          </div>
+          {/* Quick stats removed */}
 
           {/* Search bar */}
           <div className="reveal max-w-xl mx-auto pt-4" ref={(el) => addRef(el, 4)}>
@@ -554,10 +538,10 @@ export default function FAQPage() {
             Our team is ready to help you navigate your market entry journey. Reach out for a no-obligation consultation.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a href="/contact" className="inline-flex items-center justify-center rounded-xl font-semibold text-sm px-7 py-3.5 shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0 bg-midnight-900 text-white hover:bg-black">
+            <a href="/#consultation" className="inline-flex items-center justify-center rounded-xl font-semibold text-sm px-7 py-3.5 shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0 bg-midnight-900 text-white hover:bg-black">
               Book a free consultation
             </a>
-            <a href="mailto:hello@athena.com" className="inline-flex items-center justify-center rounded-xl font-semibold text-sm px-7 py-3.5 border-2 border-midnight-900 bg-white/30 text-midnight-900 transition-all duration-300 hover:bg-white/50">
+            <a href="mailto:info@athenamea.com" className="inline-flex items-center justify-center rounded-xl font-semibold text-sm px-7 py-3.5 border-2 border-midnight-900 bg-white/30 text-midnight-900 transition-all duration-300 hover:bg-white/50">
               Email us directly
             </a>
           </div>

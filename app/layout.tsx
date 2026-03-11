@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Space_Grotesk, JetBrains_Mono, Pacifico } from "next/font/google";
 import "./globals.css";
-import SocialMediaPanel from "../components/SocialMediaPanel";
+
 import Navbar from "../components/Navbar";
 
 const dmSans = DM_Sans({
@@ -49,7 +49,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
-        <SocialMediaPanel />
+
       </body>
     </html>
   );

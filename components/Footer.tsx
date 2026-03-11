@@ -40,7 +40,7 @@ export default function Footer() {
             <div className="mt-6 flex items-center gap-3">
               {[
                 {
-                  href: 'https://linkedin.com',
+                  href: 'https://www.linkedin.com/company/athena-market-entry-advisors/',
                   icon: Linkedin,
                   label: 'LinkedIn',
                 },
@@ -124,30 +124,37 @@ export default function Footer() {
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
               Get in Touch
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               <li>
                 <a
-                  href="mailto:contact@athenaexec.com"
+                  href="mailto:info@athenamea.com"
                   className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors duration-300"
                 >
                   <Mail className="w-4 h-4 flex-shrink-0" />
-                  <span className="text-sm">contact@athenaexec.com</span>
+                  <span className="text-sm">info@athenamea.com</span>
                 </a>
               </li>
               <li>
-                <div className="flex items-center gap-3 text-slate-400">
-                  <MapPin className="w-4 h-4 flex-shrink-0" />
-                  <span className="text-sm">Mumbai | Dubai | London</span>
+                <div className="flex items-start gap-3 text-slate-400">
+                  <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                  <div className="text-sm space-y-1">
+                    <p><span className="text-white/70 font-medium">India:</span> Gurgaon, Bangalore, Hyderabad, Mumbai</p>
+                    <p><span className="text-white/70 font-medium">UAE:</span> Dubai, Abu Dhabi, Riyadh</p>
+                  </div>
                 </div>
               </li>
               <li>
-                <a
-                  href="tel:+91xxxxxxxxxxxx"
-                  className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors duration-300"
-                >
-                  <Phone className="w-4 h-4 flex-shrink-0" />
-                  <span className="text-sm">+91 (xxx) xxx-xxxx</span>
-                </a>
+                <div className="flex items-start gap-3 text-slate-400">
+                  <Phone className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                  <div className="text-sm space-y-1">
+                    <a href="tel:+919810268983" className="block hover:text-white transition-colors duration-300">
+                      <span className="text-white/70 font-medium">India:</span> +91-9810268983
+                    </a>
+                    <a href="tel:+971556447099" className="block hover:text-white transition-colors duration-300">
+                      <span className="text-white/70 font-medium">UAE:</span> +971-556447099
+                    </a>
+                  </div>
+                </div>
               </li>
             </ul>
           </div>

@@ -7,7 +7,7 @@ export default function SocialMediaPanel() {
     {
       name: 'LinkedIn',
       icon: Linkedin,
-      url: 'https://linkedin.com',
+      url: 'https://www.linkedin.com/company/athena-market-entry-advisors/',
     },
     {
       name: 'YouTube',

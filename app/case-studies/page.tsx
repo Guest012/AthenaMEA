@@ -36,6 +36,7 @@ interface CaseStudy {
   id: string;
   company: string;
   logo: string;
+  industryImage: string;
   tagline: string;
   tags: { label: string; color: string }[];
   industry: string;
@@ -57,6 +58,7 @@ const CASE_STUDIES: CaseStudy[] = [
     id: 'grupo-bimbo',
     company: 'Grupo Bimbo',
     logo: '/client-grupobimbo.jpeg',
+    industryImage: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80',
     tagline: "World's largest baking company — India market entry via acquisition & leadership build",
     tags: [
       { label: 'Integration', color: 'bg-brand-400/10 text-brand-400 border-brand-400/20' },
@@ -105,6 +107,7 @@ const CASE_STUDIES: CaseStudy[] = [
     id: 'unitedhealth',
     company: 'UnitedHealth Group',
     logo: '/client-unitedhealthgroup.png',
+    industryImage: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80',
     tagline: 'Global healthcare leader — India market entry with leadership build & location advisory',
     tags: [
       { label: 'Market Entry', color: 'bg-sky-400/10 text-sky-400 border-sky-400/20' },
@@ -152,6 +155,7 @@ const CASE_STUDIES: CaseStudy[] = [
     id: 'sophos',
     company: 'Sophos',
     logo: '/client-sophos.jpeg',
+    industryImage: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80',
     tagline: 'Global cybersecurity leader — Engineering operations consolidation into India',
     tags: [
       { label: 'Engineering Scale', color: 'bg-cyan-400/10 text-cyan-400 border-cyan-400/20' },
@@ -200,6 +204,7 @@ const CASE_STUDIES: CaseStudy[] = [
     id: 'systra',
     company: 'SYSTRA',
     logo: '/client-systra.jpeg',
+    industryImage: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80',
     tagline: 'Global French engineering firm — India post-acquisition restructuring & leadership build',
     tags: [
       { label: 'Post-Acquisition', color: 'bg-orange-400/10 text-orange-400 border-orange-400/20' },
@@ -248,6 +253,7 @@ const CASE_STUDIES: CaseStudy[] = [
     id: 'ovs',
     company: 'OVS',
     logo: '',
+    industryImage: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80',
     tagline: "Italy's largest fashion retailer — India market entry with MD & HR leadership placement",
     tags: [
       { label: 'Market Entry', color: 'bg-pink-400/10 text-pink-400 border-pink-400/20' },
@@ -293,6 +299,7 @@ const CASE_STUDIES: CaseStudy[] = [
     id: 'bytedance',
     company: 'ByteDance',
     logo: '/client-bytedance.png',
+    industryImage: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80',
     tagline: 'Global tech giant — India monetization team build at massive scale (175+ hires in year one)',
     tags: [
       { label: 'Scale Hiring', color: 'bg-red-400/10 text-red-400 border-red-400/20' },
@@ -340,6 +347,7 @@ const CASE_STUDIES: CaseStudy[] = [
     id: 'divido',
     company: 'Divido',
     logo: '',
+    industryImage: 'https://images.unsplash.com/photo-1563986768609-322da13575f2?w=800&q=80',
     tagline: 'UK fintech — India tech hub build for white-label BNPL platform',
     tags: [
       { label: 'Tech Hub', color: 'bg-indigo-400/10 text-indigo-400 border-indigo-400/20' },
@@ -393,71 +401,70 @@ function CarouselCard({ cs, index, isActive, onClick }: {
   return (
     <button
       onClick={onClick}
-      className={`group relative flex-shrink-0 w-[320px] md:w-[360px] rounded-3xl overflow-hidden transition-all duration-500 cursor-pointer
+      className={`group relative flex-shrink-0 w-[320px] md:w-[360px] rounded-2xl overflow-hidden transition-all duration-500 cursor-pointer
         ${isActive
-          ? 'ring-2 ring-brand-400 shadow-2xl shadow-brand-400/20 scale-[1.03]'
-          : 'hover:shadow-xl hover:-translate-y-1 shadow-lg'
+          ? 'ring-2 ring-brand-400 shadow-2xl shadow-brand-400/25 scale-[1.02]'
+          : 'hover:shadow-2xl hover:-translate-y-1.5 shadow-lg'
         }`}
-      style={{ background: 'linear-gradient(135deg, #1a2332 0%, #0f172a 100%)' }}
+      style={{ minHeight: '480px' }}
     >
-      {/* Accent glow */}
+      {/* Background industry image */}
+      <img
+        src={cs.industryImage}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+      />
+
+      {/* Gradient overlays */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+      {/* Accent tint on hover */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-        style={{ background: `radial-gradient(circle at 50% 0%, ${cs.accentSolid}15, transparent 70%)` }} />
+        style={{ background: `linear-gradient(to top, ${cs.accentSolid}20, transparent 60%)` }} />
 
-      {/* Top accent bar */}
-      <div className={`h-1 w-full bg-gradient-to-r ${cs.accent}`} />
+      {/* Top bar: Case study number + Industry badge */}
+      <div className="absolute top-0 left-0 right-0 p-5 flex items-center justify-between z-10">
+        <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/60 drop-shadow">
+          {String(index + 1).padStart(2, '0')}
+        </span>
+        <span className="text-[10px] font-medium text-white/90 bg-black/30 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+          {cs.industry}
+        </span>
+      </div>
 
-      <div className="relative p-6">
-        {/* Number + Industry */}
-        <div className="flex items-center justify-between mb-5">
-          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/30">
-            Case Study {String(index + 1).padStart(2, '0')}
-          </span>
-          <span className="text-[10px] font-medium text-white/40 bg-white/5 px-2.5 py-1 rounded-full">
-            {cs.industry}
-          </span>
-        </div>
-
+      {/* Bottom content anchored to bottom */}
+      <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
         {/* Logo */}
-        <div className={`h-16 w-16 rounded-2xl bg-gradient-to-br ${cs.accent} flex items-center justify-center overflow-hidden mb-5 shadow-lg`}>
+        <div className="h-14 w-14 rounded-xl bg-white/95 backdrop-blur-sm flex items-center justify-center overflow-hidden mb-4 shadow-xl p-1.5 border border-white/20">
           {cs.logo ? (
-            <img src={cs.logo} alt={cs.company} className="h-full w-full object-cover rounded-2xl" />
+            <img src={cs.logo} alt={cs.company} className="max-h-full max-w-full object-contain" />
           ) : (
-            <span className="text-white font-display font-bold text-2xl">{cs.company.charAt(0)}</span>
+            <span className="text-midnight-900 font-display font-bold text-xl">{cs.company.charAt(0)}</span>
           )}
         </div>
 
         {/* Company name */}
-        <h3 className="font-display text-xl font-bold text-white mb-2 group-hover:text-brand-300 transition-colors">
+        <h3 className="font-display text-2xl font-bold text-white mb-2 drop-shadow-lg">
           {cs.company}
         </h3>
 
         {/* Tagline */}
-        <p className="text-sm text-white/50 leading-relaxed mb-5 line-clamp-2">{cs.tagline}</p>
+        <p className="text-sm text-white/70 leading-relaxed mb-4 line-clamp-2 drop-shadow">{cs.tagline}</p>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-1.5 mb-5">
-          {cs.tags.map((tag) => (
-            <span key={tag.label} className="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-medium text-white/60">
+        <div className="flex flex-wrap gap-1.5 mb-4">
+          {cs.tags.slice(0, 3).map((tag) => (
+            <span key={tag.label} className="px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-[11px] font-medium text-white/80">
               {tag.label}
             </span>
           ))}
         </div>
 
-        {/* Stats preview - 2 key stats */}
-        <div className="grid grid-cols-2 gap-3 mb-5">
-          {cs.stats.slice(0, 2).map((s) => (
-            <div key={s.label} className="text-center p-2.5 rounded-xl bg-white/5 border border-white/5">
-              <div className="font-display text-lg font-bold text-white">{s.value}</div>
-              <div className="text-[10px] text-white/30 font-medium mt-0.5">{s.label}</div>
-            </div>
-          ))}
-        </div>
-
         {/* CTA */}
-        <div className="flex items-center gap-2 text-sm font-semibold text-brand-400 group-hover:text-brand-300 transition-colors">
+        <div className="flex items-center gap-2 text-sm font-semibold text-brand-400 group-hover:text-brand-300 transition-colors drop-shadow">
           <span>Read full story</span>
-          <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <svg className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </div>
