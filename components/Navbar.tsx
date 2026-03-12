@@ -86,12 +86,12 @@ export default function Navbar() {
                         <Link href="/" className="group flex items-center gap-3 flex-shrink-0">
                             <img
                                 src="/athena-logo-full.png"
-                                alt="ATHENA Market Entry Advisory"
+                                alt="ATHENA Market Entry Advisors"
                                 className="h-11 w-11 rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
                             />
                             <div className="leading-tight">
                                 <div className="text-lg font-display font-bold tracking-[0.12em] text-slate-900">ATHENA</div>
-                                <div className="text-[11px] font-semibold tracking-widest text-brand-600 uppercase">Market Entry Advisory</div>
+                                <div className="text-[11px] font-semibold tracking-widest text-brand-600 uppercase">Market Entry Advisors</div>
                             </div>
                         </Link>
 

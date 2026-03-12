@@ -38,7 +38,7 @@ const siteUrl = "https://www.athenamea.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "ATHENA MEA — Market Entry Advisory for India & Middle East",
+    default: "ATHENA MEA — Market Entry Advisors for India & Middle East",
     template: "%s | ATHENA MEA",
   },
   description: "Market entry advisory, executive search and consulting for global businesses expanding into India, UAE and the Middle East.",
@@ -65,20 +65,20 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "ATHENA MEA",
-    title: "ATHENA MEA — Market Entry Advisory for India & Middle East",
+    title: "ATHENA MEA — Market Entry Advisors for India & Middle East",
     description: "Strategic market entry advisory, executive search and consulting for global businesses expanding into India, UAE and the Middle East.",
     images: [
       {
         url: `${siteUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "ATHENA MEA — Market Entry Advisory",
+        alt: "ATHENA MEA — Market Entry Advisors",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ATHENA MEA — Market Entry Advisory for India & Middle East",
+    title: "ATHENA MEA — Market Entry Advisors for India & Middle East",
     description: "Strategic market entry advisory, executive search and consulting for global businesses expanding into India, UAE and the Middle East.",
     images: [`${siteUrl}/og-image.png`],
   },

@@ -122,7 +122,7 @@ const CASE_STUDIES: CaseStudy[] = [
     contributions: [
       'Built the core leadership team in India, including CFO, COO, CSO, Chief Delivery Officer, and multiple delivery heads',
       'Provided strategic advisory on location selection based on talent availability across regions',
-      'Developed and introduced a new Market Entry Advisory practice',
+      'Developed and introduced a new Market Entry Advisors practice',
       'Acted as a trusted partner in both execution and strategic insight during their India entry',
     ],
     challenges: [
@@ -133,13 +133,13 @@ const CASE_STUDIES: CaseStudy[] = [
     impacts: [
       'Successfully enabled India market entry by building a strong leadership foundation',
       'Helped the client recognize the importance of aligning location strategy with talent availability',
-      'Led to the creation of Athena\'s Market Entry Advisory practice, now a core service offering',
+      'Led to the creation of Athena\'s Market Entry Advisors practice, now a core service offering',
       'Established a long-term partnership rooted in both strategic advisory and execution excellence',
     ],
     benefits: [
       'Successfully enabled market entry with strong leadership foundation',
       'Aligned location strategy with talent availability insights',
-      'Led to creation of Market Entry Advisory practice',
+      'Led to creation of Market Entry Advisors practice',
       'Established long-term strategic and execution partnership',
     ],
     quote: "Athena's dual expertise in both strategic advisory and execution made them the perfect partner for our India entry.",

@@ -114,43 +114,53 @@ export default function Testimonials() {
           }`}
         >
           {/* Cards grid */}
-          <div className="grid md:grid-cols-2 gap-8 min-h-[320px]">
+          <div className="grid md:grid-cols-2 gap-8">
             {currentCards.map((t, idx) => (
               <div
                 key={`${currentPage}-${idx}`}
-                className="relative rounded-2xl bg-white border border-slate-100 shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl"
-                style={{ animation: 'fadeSlideIn 0.5s ease-out forwards', animationDelay: `${idx * 100}ms` }}
+                className="rounded-2xl border border-slate-100 shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl"
+                style={{ animation: 'fadeSlideIn 0.5s ease-out forwards', animationDelay: `${idx * 100}ms`, height: '380px' }}
               >
-                {/* Flag background — two halves side by side */}
-                <div className="absolute inset-0 flex pointer-events-none">
-                  <div className="w-1/2 h-full overflow-hidden">
-                    <img
-                      src={t.flag}
-                      alt=""
-                      aria-hidden="true"
-                      className="w-full h-full object-cover opacity-[0.12]"
-                    />
+                <div className="flex flex-col h-full">
+                  {/* Top section — quote on clean white background (compact) */}
+                  <div className="px-8 pt-6 pb-4 bg-white shrink-0">
+                    <div className="text-brand-400 text-3xl font-serif leading-none mb-2">&ldquo;</div>
+                    <blockquote className="text-slate-700 text-sm leading-relaxed font-medium line-clamp-4">
+                      {t.quote}
+                    </blockquote>
                   </div>
-                  <div className="w-1/2 h-full overflow-hidden">
-                    <img
-                      src={t.flag}
-                      alt=""
-                      aria-hidden="true"
-                      className="w-full h-full object-cover opacity-[0.06]"
-                    />
-                  </div>
-                </div>
 
-                {/* Content */}
-                <div className="relative z-10 p-8 flex flex-col justify-between h-full min-h-[280px]">
-                  <blockquote className="text-slate-700 text-base lg:text-lg leading-relaxed font-medium">
-                    &ldquo;{t.quote}&rdquo;
-                  </blockquote>
+                  {/* Bottom section — flag background with client details (dominant) */}
+                  <div className="relative overflow-hidden flex-1 min-h-0">
+                    {/* Flag background */}
+                    <div className="absolute inset-0">
+                      <img
+                        src={t.flag}
+                        alt=""
+                        aria-hidden="true"
+                        className="w-full h-full object-cover scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-midnight-900/90 via-midnight-900/70 to-midnight-900/50" />
+                    </div>
 
-                  <div className="mt-8">
-                    <div className="font-display text-lg font-bold text-slate-900">{t.name}</div>
-                    <div className="text-sm font-semibold text-slate-500">{t.title}</div>
-                    <div className="text-sm text-slate-400">{t.company}</div>
+                    {/* Client details — pushed to bottom */}
+                    <div className="relative z-10 px-8 py-6 flex items-end h-full">
+                      <div className="flex items-center gap-4">
+                        <div className="flex-shrink-0 h-14 w-14 rounded-full bg-white/15 border-2 border-white/25 flex items-center justify-center overflow-hidden shadow-lg">
+                          <img
+                            src={t.flag}
+                            alt=""
+                            aria-hidden="true"
+                            className="h-10 w-10 rounded-full object-cover"
+                          />
+                        </div>
+                        <div>
+                          <div className="font-display text-lg font-bold text-white">{t.name}</div>
+                          <div className="text-sm font-semibold text-white/80">{t.title}</div>
+                          <div className="text-sm text-white/60">{t.company}</div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

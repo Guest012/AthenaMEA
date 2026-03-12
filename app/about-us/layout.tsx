@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     canonical: "https://www.athenamea.com/about-us",
   },
   openGraph: {
-    title: "About ATHENA MEA — Market Entry Advisory",
+    title: "About ATHENA MEA — Market Entry Advisors",
     description:
       "Learn about ATHENA MEA and our capabilities in market entry strategy, executive search, and operational consulting for India, UAE, and the Middle East.",
     url: "https://www.athenamea.com/about-us",

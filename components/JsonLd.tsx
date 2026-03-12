@@ -36,7 +36,7 @@ export function OrganizationJsonLd() {
       { "@type": "Country", name: "Saudi Arabia" },
     ],
     serviceType: [
-      "Market Entry Advisory",
+      "Market Entry Advisors",
       "Executive Search",
       "HR Due Diligence",
       "Business Operations Setup",

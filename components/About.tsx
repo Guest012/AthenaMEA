@@ -146,7 +146,7 @@ export default function About() {
                   aria-label="ATHENA MEA company overview video"
                 >
                   <source src="/about-video.mp4" type="video/mp4" />
-                  <track kind="captions" src="" label="English" srcLang="en" default />
+                  <track kind="captions" src="/captions.vtt" label="English" srcLang="en" default />
                   Your browser does not support the video tag.
                 </video>
 

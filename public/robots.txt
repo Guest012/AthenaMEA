@@ -1,4 +1,4 @@
-# ATHENA MEA — Market Entry Advisory
+# ATHENA MEA — Market Entry Advisors
 # https://www.athenamea.com
 
 User-agent: *

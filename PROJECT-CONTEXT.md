@@ -7,7 +7,7 @@
 
 ## What Is This Project?
 
-**ATHENA MEA** is a market entry advisory website for companies expanding into **India & the Middle East**. It's a marketing/branding site (not a SaaS app) — static pages, no auth, no database.
+**ATHENA MEA** is a market entry advisors website for companies expanding into **India & the Middle East**. It's a marketing/branding site (not a SaaS app) — static pages, no auth, no database.
 
 ---
 
