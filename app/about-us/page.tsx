@@ -253,13 +253,12 @@ export default function AboutUsPage() {
               <div className="grid md:grid-cols-5 gap-0">
                 {/* Photo */}
                 <div className="md:col-span-2 relative overflow-hidden">
-                  <div className="aspect-[3/4] md:h-full bg-gradient-to-br from-brand-400 to-amber-500 flex items-center justify-center">
-                    {/* Placeholder — will use actual photo when available */}
-                    <div className="text-center p-6">
-                      <div className="h-32 w-32 rounded-full bg-white/20 border-4 border-white/30 flex items-center justify-center mx-auto mb-4">
-                        <span className="text-white font-display text-5xl font-bold">BS</span>
-                      </div>
-                    </div>
+                  <div className="aspect-[3/4] md:h-full bg-slate-100">
+                    <img
+                      src="/bhavishya-sharma.webp"
+                      alt="Bhavishya Sharma — Founder & Managing Director"
+                      className="w-full h-full object-cover object-top"
+                    />
                   </div>
                 </div>
 
