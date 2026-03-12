@@ -252,8 +252,8 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'ovs',
     company: 'OVS',
-    logo: '',
-    industryImage: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80',
+    logo: '/client-ovs.webp',
+    industryImage: 'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800&q=80',
     tagline: "Italy's largest fashion retailer — India market entry with MD & HR leadership placement",
     tags: [
       { label: 'Market Entry', color: 'bg-pink-400/10 text-pink-400 border-pink-400/20' },
@@ -299,7 +299,7 @@ const CASE_STUDIES: CaseStudy[] = [
     id: 'bytedance',
     company: 'ByteDance',
     logo: '/client-bytedance.webp',
-    industryImage: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80',
+    industryImage: '/bytedance-tiktok-tile.webp',
     tagline: 'Global tech giant — India monetization team build at massive scale (175+ hires in year one)',
     tags: [
       { label: 'Scale Hiring', color: 'bg-red-400/10 text-red-400 border-red-400/20' },
@@ -346,8 +346,8 @@ const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'divido',
     company: 'Divido',
-    logo: '',
-    industryImage: 'https://images.unsplash.com/photo-1563986768609-322da13575f2?w=800&q=80',
+    logo: '/client-divido.webp',
+    industryImage: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&q=80',
     tagline: 'UK fintech — India tech hub build for white-label BNPL platform',
     tags: [
       { label: 'Tech Hub', color: 'bg-indigo-400/10 text-indigo-400 border-indigo-400/20' },
@@ -535,9 +535,9 @@ function CaseStudyFull({ cs, onClose, onPrev, onNext, currentIndex, total }: {
         <div className="sticky top-0 z-30 bg-white/90 backdrop-blur-xl border-b border-slate-100">
           <div className="flex items-center justify-between px-6 lg:px-10 py-3">
             <div className="flex items-center gap-3">
-              <div className={`h-8 w-8 rounded-lg bg-gradient-to-br ${cs.accent} flex items-center justify-center overflow-hidden`}>
+              <div className={`h-8 w-8 rounded-lg bg-white flex items-center justify-center overflow-hidden border border-slate-200`}>
                 {cs.logo ? (
-                  <img src={cs.logo} alt="" className="h-full w-full object-cover rounded-lg" />
+                  <img src={cs.logo} alt="" className="h-6 w-6 object-contain" />
                 ) : (
                   <span className="text-white font-bold text-xs">{cs.company.charAt(0)}</span>
                 )}
@@ -573,9 +573,9 @@ function CaseStudyFull({ cs, onClose, onPrev, onNext, currentIndex, total }: {
 
           <div className="relative z-10 px-6 lg:px-10">
             <div className="flex items-start gap-5 mb-8">
-              <div className={`flex-shrink-0 h-20 w-20 rounded-2xl bg-gradient-to-br ${cs.accent} flex items-center justify-center overflow-hidden shadow-2xl ring-4 ring-white/10`}>
+              <div className={`flex-shrink-0 h-20 w-20 rounded-2xl bg-white flex items-center justify-center overflow-hidden shadow-2xl ring-4 ring-white/10 p-2`}>
                 {cs.logo ? (
-                  <img src={cs.logo} alt={cs.company} className="h-full w-full object-cover rounded-2xl" />
+                  <img src={cs.logo} alt={cs.company} className="max-h-full max-w-full object-contain" />
                 ) : (
                   <span className="text-white font-display font-bold text-3xl">{cs.company.charAt(0)}</span>
                 )}
