@@ -12,12 +12,12 @@ export default function SocialMediaPanel() {
     {
       name: 'YouTube',
       icon: Youtube,
-      url: 'https://youtube.com',
+      url: 'https://www.youtube.com/@AthenaMEA',
     },
     {
       name: 'Facebook',
       icon: Facebook,
-      url: 'https://facebook.com',
+      url: 'https://www.facebook.com/profile.php?id=61582308998462',
     },
   ];
 

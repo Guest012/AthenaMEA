@@ -45,10 +45,10 @@ export function OrganizationJsonLd() {
     ],
     sameAs: [
       "https://www.linkedin.com/company/athena-market-entry-advisors/",
-      "https://www.facebook.com/athenamea",
+      "https://www.facebook.com/profile.php?id=61582308998462",
       "https://www.instagram.com/athenamea",
-      "https://x.com/athenamea",
-      "https://www.youtube.com/@athenamea",
+      "https://x.com/AthenameaInfo",
+      "https://www.youtube.com/@AthenaMEA",
     ],
     foundingDate: "2020",
     numberOfEmployees: {

@@ -247,7 +247,7 @@ export default function Footer() {
                     label: 'LinkedIn',
                   },
                   {
-                    href: 'https://www.facebook.com/athenamea',
+                    href: 'https://www.facebook.com/profile.php?id=61582308998462',
                     icon: Facebook,
                     label: 'Facebook',
                   },
@@ -257,12 +257,12 @@ export default function Footer() {
                     label: 'Instagram',
                   },
                   {
-                    href: 'https://x.com/athenamea',
+                    href: 'https://x.com/AthenameaInfo',
                     icon: Twitter,
                     label: 'X (Twitter)',
                   },
                   {
-                    href: 'https://www.youtube.com/@athenamea',
+                    href: 'https://www.youtube.com/@AthenaMEA',
                     icon: Youtube,
                     label: 'YouTube',
                   },
