@@ -252,7 +252,7 @@ export default function Footer() {
                     label: 'Facebook',
                   },
                   {
-                    href: 'https://www.instagram.com/athenamea',
+                    href: 'https://www.instagram.com/info.athenamea',
                     icon: Instagram,
                     label: 'Instagram',
                   },
