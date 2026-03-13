@@ -46,7 +46,7 @@ export function OrganizationJsonLd() {
     sameAs: [
       "https://www.linkedin.com/company/athena-market-entry-advisors/",
       "https://www.facebook.com/profile.php?id=61582308998462",
-      "https://www.instagram.com/info.athenamea",
+      "https://www.instagram.com/athenamea.co",
       "https://x.com/AthenameaInfo",
       "https://www.youtube.com/@AthenaMEA",
     ],
