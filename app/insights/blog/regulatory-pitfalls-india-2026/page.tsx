@@ -26,7 +26,7 @@ export default function RegulatoryPitfallsIndia2026() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActiveTableOfContents(entry.id);
+            setActiveTableOfContents(entry.target.id);
           }
         });
       },
