@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { DM_Sans, Space_Grotesk, JetBrains_Mono, Pacifico } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 import Navbar from "../components/Navbar";
 import GoogleAnalytics from "../components/GoogleAnalytics";
+
+const GTM_ID = "GTM-PGMLKJBM";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -105,10 +108,35 @@ export default function RootLayout({
       <head>
         <link rel="llms" href="/llms.txt" />
         <GoogleAnalytics />
+        {/* Google Tag Manager */}
+        <Script
+          id="google-tag-manager"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','${GTM_ID}');
+            `,
+          }}
+        />
+        {/* End Google Tag Manager */}
       </head>
       <body
         className={`${dmSans.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${pacifico.variable} font-sans antialiased`}
       >
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            className="hidden invisible"
+          />
+        </noscript>
+        {/* End Google Tag Manager (noscript) */}
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:bg-brand-400 focus:text-midnight-900 focus:px-4 focus:py-2 focus:rounded-md focus:font-semibold">
           Skip to main content
         </a>
