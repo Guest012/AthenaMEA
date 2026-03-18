@@ -193,8 +193,8 @@ export default function Footer() {
   const companyLinks = [
     { label: 'About', href: '/about-us' },
     { label: 'Careers', href: '#', inactive: true },
-    { label: 'Privacy Policy', href: '#', onClick: () => setPrivacyOpen(true) },
-    { label: 'Terms of Service', href: '#', onClick: () => setTermsOpen(true) },
+    { label: 'Privacy Policy', href: '/privacy-policy' },
+    { label: 'Terms of Service', href: '/terms-of-service' },
   ];
 
   const serviceLinks = [
@@ -227,9 +227,9 @@ export default function Footer() {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
             {/* Column 1: Brand */}
             <div>
-              <h2 className="font-display text-3xl font-bold text-white tracking-[0.1em]">
+              <span className="font-display text-3xl font-bold text-white tracking-[0.1em] block" aria-label="ATHENA">
                 ATHENA
-              </h2>
+              </span>
               <p className="text-sm text-slate-400 mt-1">
                 Market Entry Advisors
               </p>
