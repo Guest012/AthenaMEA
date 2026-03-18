@@ -7,6 +7,28 @@ import Footer from '../../components/Footer';
 /* ─── Blog Article Data ─── */
 const BLOG_ARTICLES = [
   {
+    slug: 'regulatory-pitfalls-india-2026',
+    title: '5 Regulatory Pitfalls Foreign Companies Face When Entering India in 2026',
+    category: 'Regulatory',
+    excerpt:
+      'Avoid costly mistakes when entering India. Learn about FDI restrictions, FEMA compliance, state-level regulations, GST complexity, and data protection laws that catch foreign companies off guard.',
+    image: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80',
+    readTime: '15 min read',
+    date: 'Mar 18, 2026',
+    featured: true,
+  },
+  {
+    slug: 'uae-free-zone-vs-mainland-2026',
+    title: 'Free Zone vs. Mainland in the UAE: A 2026 Decision Framework for Foreign Businesses',
+    category: 'Regulatory',
+    excerpt:
+      'Should you set up in a UAE Free Zone or on the Mainland? A comprehensive 2026 decision framework covering ownership, corporate tax, visa allocation, costs, and real-world scenarios.',
+    image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&q=80',
+    readTime: '14 min read',
+    date: 'Mar 18, 2026',
+    featured: false,
+  },
+  {
     slug: 'india-market-entry-guide-2025',
     title: 'India Market Entry Guide 2025: Strategy, Regulations & Practical Playbook',
     category: 'Market Entry',
@@ -15,7 +37,7 @@ const BLOG_ARTICLES = [
     image: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80',
     readTime: '12 min read',
     date: 'Feb 18, 2025',
-    featured: true,
+    featured: false,
   },
   {
     slug: 'uae-free-zone-vs-mainland',
