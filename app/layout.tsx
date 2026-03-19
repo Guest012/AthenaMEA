@@ -107,6 +107,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning={true}>
       <head>
         <link rel="llms" href="/llms.txt" />
+        <link rel="llms-full" href="/llms-full.txt" />
         <GoogleAnalytics />
         {/* Google Tag Manager */}
         <Script

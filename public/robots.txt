@@ -37,3 +37,7 @@ User-agent: cohere-ai
 Allow: /
 
 Sitemap: https://www.athenamea.com/sitemap.xml
+
+# AI-optimized content
+# LLMs.txt: https://www.athenamea.com/llms.txt
+# LLMs-full.txt: https://www.athenamea.com/llms-full.txt

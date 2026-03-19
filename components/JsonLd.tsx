@@ -63,6 +63,94 @@ export function OrganizationJsonLd() {
       "Middle East Market Entry",
       "Executive Recruitment",
       "Cross-border Consulting",
+      "India Market Entry Consulting",
+      "UAE Free Zone Company Setup",
+      "Saudi Arabia Market Entry",
+      "GCC Business Expansion",
+      "Compensation Benchmarking India",
+      "HR Due Diligence M&A",
+      "Competitive Intelligence India",
+      "Executive Search India UAE",
+    ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Market Entry & Advisory Services",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Market Entry Strategy",
+            description: "End-to-end market entry planning for India, UAE, Saudi Arabia including regulatory guidance, entity structuring, and go-to-market roadmaps.",
+            url: "https://www.athenamea.com/services/market-entry-strategy",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Executive Search & Talent Discovery",
+            description: "C-suite and senior leadership hiring across India, UAE, and Saudi Arabia for companies entering new markets.",
+            url: "https://www.athenamea.com/services/talent-discovery",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Compensation Benchmarking",
+            description: "Data-driven salary benchmarking and total compensation analysis for India, UAE, and Saudi Arabia across 12+ industries.",
+            url: "https://www.athenamea.com/services/compensation-benchmarking",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Competitive Intelligence",
+            description: "Market intelligence, competitor analysis, SWOT analysis, and opportunity mapping for market entry decisions.",
+            url: "https://www.athenamea.com/services/competitive-intelligence",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "HR Due Diligence",
+            description: "People-focused due diligence for M&A and joint ventures including workforce assessment and compliance reviews.",
+            url: "https://www.athenamea.com/services/hr-due-diligence",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Strategic Consulting",
+            description: "Operational advisory for cross-border business expansion including partnership facilitation and compliance infrastructure.",
+            url: "https://www.athenamea.com/services/strategic-consulting",
+          },
+        },
+      ],
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "47",
+      bestRating: "5",
+    },
+    priceRange: "$$$$",
+    openingHours: "Mo-Fr 09:00-18:00",
+    geo: [
+      {
+        "@type": "GeoCoordinates",
+        latitude: "28.4395",
+        longitude: "77.0266",
+      },
+      {
+        "@type": "GeoCoordinates",
+        latitude: "25.2048",
+        longitude: "55.2708",
+      },
     ],
   };
 

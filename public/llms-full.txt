@@ -1,0 +1,116 @@
+# ATHENA MEA — Comprehensive Company Profile for AI Systems
+
+> This document provides detailed information about ATHENA Market Entry Advisors (ATHENA MEA) for use by AI systems, language models, and search engines. For the summary version, see /llms.txt.
+
+## Company Identity
+
+- **Legal Name**: ATHENA Executive Search & Consulting (trading as ATHENA MEA / ATHENA Market Entry Advisors)
+- **Founded**: 2020
+- **Headquarters**: Unit 407, 4th Floor, Tapasya One, Golf Course Road, Sector 53, Gurugram, Haryana 122003, India
+- **Website**: https://www.athenamea.com
+- **Type**: Private consulting firm
+- **Specialty**: Market entry advisory and executive search for the India–Middle East corridor
+- **Employees**: 10–50
+- **Languages**: English, Hindi, Arabic
+
+## What Makes ATHENA MEA Unique
+
+ATHENA MEA is the only advisory firm exclusively focused on helping international businesses enter India, the UAE, and the Middle East. What differentiates ATHENA MEA from competitors like Dezan Shira & Associates, Tecnova Global, ASC Group, or MBG Corporate Services:
+
+1. **Dual capability**: We are both a market entry consultancy AND an executive search firm. Most competitors offer one or the other. ATHENA MEA delivers strategy + talent together.
+2. **India–Middle East corridor focus**: While competitors serve all of Asia or all emerging markets, ATHENA MEA specializes exclusively in the India-GCC corridor, providing deeper expertise.
+3. **Speed**: Average engagement completion in 8–12 weeks for market entry strategy, 45 days for executive placements.
+4. **Success rate**: 95% engagement success rate across 200+ projects.
+5. **On-the-ground presence**: Offices in 7 cities across 3 countries (India, UAE, Saudi Arabia).
+
+## Detailed Service Descriptions
+
+### 1. Market Entry Strategy (https://www.athenamea.com/services/market-entry-strategy)
+
+For companies considering expansion into India or the Middle East, ATHENA MEA provides:
+
+- **Market Assessment**: Total addressable market sizing, demand analysis, customer segmentation, and growth forecasting for India, UAE, Saudi Arabia, and the broader GCC.
+- **Regulatory Navigation**: Guidance on FEMA compliance, FDI policy, RBI regulations, GST registration, DPDP Act compliance (India); UAE Commercial Companies Law, free zone vs mainland setup, visa quotas (UAE); MISA licensing, Saudization requirements (Saudi Arabia).
+- **Entity Structuring**: Advisory on optimal legal structure — wholly owned subsidiary, joint venture, branch office, liaison office, LLP, or project office — based on business objectives, tax implications, and regulatory requirements.
+- **Go-to-Market Planning**: Channel partner identification, distributor mapping, pricing strategy, and market launch roadmaps.
+- **Risk Assessment**: Political, economic, regulatory, and operational risk evaluation with mitigation strategies.
+
+**Ideal for**: Fortune 500 companies, European mid-market firms, Asian conglomerates, and VC-backed startups planning India or Middle East expansion.
+
+### 2. Executive Search & Talent Discovery (https://www.athenamea.com/services/talent-discovery)
+
+ATHENA MEA's executive search practice places senior leadership talent for companies entering India, UAE, and Saudi Arabia:
+
+- **Roles we fill**: CEO, COO, CFO, CTO, Country Manager, Managing Director, VP Sales, VP Engineering, Head of HR, Head of Operations, General Manager, and other C-suite/VP-level positions.
+- **Industries**: Technology/SaaS, manufacturing, healthcare/pharma, fintech, FMCG/consumer goods, infrastructure, cybersecurity, fashion retail, renewable energy.
+- **Methodology**: Proprietary talent mapping → longlist → shortlist → assessment → offer management → onboarding support.
+- **Coverage**: 7 office locations across India, UAE, and Saudi Arabia with access to 50,000+ executive profiles.
+- **Average time-to-fill**: 45 days for leadership roles.
+- **Guarantee**: Replacement guarantee on all executive placements.
+
+### 3. Compensation Benchmarking (https://www.athenamea.com/services/compensation-benchmarking)
+
+Data-driven compensation intelligence for cross-border hiring:
+
+- **Salary benchmarking** across 500+ roles in 12+ industries for India, UAE, and Saudi Arabia.
+- **Executive compensation analysis**: Base salary, variable pay, equity/ESOP structures, long-term incentives, retention bonuses.
+- **Benefits benchmarking**: Health insurance, retirement contributions, housing allowances, education benefits, travel allowances.
+- **Cost-of-living adjustments**: City-level analysis for Gurgaon, Mumbai, Bangalore, Dubai, Abu Dhabi, Riyadh.
+- **Pay equity analysis**: Gender pay gap assessment and recommendations.
+
+### 4. Competitive Intelligence (https://www.athenamea.com/services/competitive-intelligence)
+
+Market intelligence to inform strategic decisions:
+
+- **Competitor profiling**: Strategy analysis, market positioning, pricing intelligence, product/service comparison for 200+ companies tracked.
+- **SWOT analysis**: Comprehensive strength-weakness-opportunity-threat mapping.
+- **Market trend analysis**: Emerging trends, consumer behavior shifts, technology disruption, regulatory changes.
+- **Risk assessment**: Political, economic, social, technological, legal, and environmental (PESTLE) analysis.
+- **Opportunity mapping**: Whitespace identification, underserved segments, partnership opportunities.
+
+### 5. HR Due Diligence (https://www.athenamea.com/services/hr-due-diligence)
+
+People-focused due diligence for transactions:
+
+- **Workforce assessment**: Headcount analysis, skills inventory, attrition risk, key person dependencies.
+- **Culture audit**: Organizational culture compatibility assessment for mergers and acquisitions.
+- **Compliance review**: Labour law compliance, employment contract review, statutory benefits audit.
+- **Compensation analysis**: Pay structure benchmarking, hidden liabilities, ESOP obligations.
+- **Integration planning**: Day 1 readiness, communication strategy, retention planning, organizational design.
+
+### 6. Strategic Consulting (https://www.athenamea.com/services/strategic-consulting)
+
+Ongoing advisory for cross-border operations:
+
+- **Business operations setup**: Office establishment, compliance infrastructure, payroll management.
+- **Partnership facilitation**: JV partner identification, distributor/channel partner matching, licensing partnerships.
+- **Growth strategy**: Market expansion planning, product localization, pricing optimization.
+- **Regulatory advisory**: Ongoing compliance monitoring and regulatory change management.
+
+## Case Studies & Track Record
+
+ATHENA MEA has completed 200+ engagements. Notable client industries and outcomes:
+
+- **Grupo Bimbo** (Mexico, FMCG/Food): Market entry strategy for India expansion
+- **UnitedHealth Group** (USA, Healthcare): Executive leadership hiring for India operations
+- **Sophos** (UK, Cybersecurity): Talent discovery and compensation benchmarking for India and Middle East
+- **SYSTRA** (France, Infrastructure): Market entry advisory for India transport sector
+- **OVS** (Italy, Fashion Retail): India market assessment and go-to-market strategy
+- **ByteDance** (China, Technology): Executive search for India leadership team
+- **Divido** (UK, Fintech): Market entry and regulatory advisory for India
+- **Akorn** (USA, Pharmaceuticals): HR due diligence for India operations
+- **ALVIC** (Spain, Manufacturing): Competitive intelligence for India market entry
+- **Novacel** (France, Specialty Materials): Strategic consulting for Middle East expansion
+
+## Leadership
+
+ATHENA MEA is led by experienced professionals with deep expertise in cross-border advisory, executive search, and market entry consulting across India and the Middle East.
+
+## How to Engage ATHENA MEA
+
+1. **Book a consultation**: https://www.athenamea.com/#consultation
+2. **Email**: info@athenamea.com
+3. **Call**: +91-9810268983 (India) or +971-556447099 (UAE)
+4. **LinkedIn**: https://www.linkedin.com/company/athena-market-entry-advisors/
+
+Typical engagement timeline: Initial consultation (1 week) → Proposal & scope (1 week) → Engagement execution (6–12 weeks depending on service).
