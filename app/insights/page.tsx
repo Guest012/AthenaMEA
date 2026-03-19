@@ -7,6 +7,39 @@ import Footer from '../../components/Footer';
 /* ─── Blog Article Data ─── */
 const BLOG_ARTICLES = [
   {
+    slug: 'saudi-arabia-market-entry-guide-2026',
+    title: 'Saudi Arabia Market Entry Guide 2026: Vision 2030, MISA Licensing & Business Setup',
+    category: 'Market Entry',
+    excerpt:
+      'Complete guide to entering the Saudi Arabian market in 2026. Covers Vision 2030 opportunities, MISA licensing, entity types, Saudization requirements, free zones, and step-by-step business setup for foreign companies.',
+    image: 'https://images.unsplash.com/photo-1586724237569-9c920a20da48?w=800&q=80',
+    readTime: '18 min read',
+    date: 'Mar 19, 2026',
+    featured: true,
+  },
+  {
+    slug: 'executive-search-vs-recruitment-india-middle-east',
+    title: 'Executive Search vs Recruitment Agencies: Hiring Leaders for India & Middle East Expansion',
+    category: 'Leadership',
+    excerpt:
+      'Understand the critical differences between executive search firms and recruitment agencies when hiring C-suite and senior leaders for India, UAE, and Saudi Arabia market entry. Includes data-driven cost analysis.',
+    image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&q=80',
+    readTime: '14 min read',
+    date: 'Mar 19, 2026',
+    featured: false,
+  },
+  {
+    slug: 'top-mistakes-entering-indian-market',
+    title: 'Top 10 Mistakes Companies Make When Entering the Indian Market',
+    category: 'Market Entry',
+    excerpt:
+      'Common mistakes foreign companies make during India market entry: wrong entity structure, underestimating compliance, hiring failures, cultural missteps, and more. Practical guidance from 200+ market entry projects.',
+    image: 'https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=800&q=80',
+    readTime: '16 min read',
+    date: 'Mar 19, 2026',
+    featured: false,
+  },
+  {
     slug: 'regulatory-pitfalls-india-2026',
     title: '5 Regulatory Pitfalls Foreign Companies Face When Entering India in 2026',
     category: 'Regulatory',
@@ -15,7 +48,7 @@ const BLOG_ARTICLES = [
     image: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80',
     readTime: '15 min read',
     date: 'Mar 18, 2026',
-    featured: true,
+    featured: false,
   },
   {
     slug: 'uae-free-zone-vs-mainland-2026',
