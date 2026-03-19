@@ -54,6 +54,8 @@ export default function FeaturedIn({
                 <img
                   src={logo.src}
                   alt={logo.alt}
+                  width={128}
+                  height={64}
                   loading="lazy"
                   className="h-full w-auto max-w-[200px] object-contain transition-all duration-300 hover:scale-110"
                   style={{ maxHeight: '64px' }}

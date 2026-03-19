@@ -120,8 +120,10 @@ export default function Navbar() {
                         {/* Brand Logo & Text */}
                         <Link href="/" className="group flex items-center gap-3 flex-shrink-0">
                             <img
-                                src="/athena-logo-full.png"
+                                src="/athena-logo-full.webp"
                                 alt="ATHENA Market Entry Advisors"
+                                width={44}
+                                height={44}
                                 className="h-11 w-11 rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
                             />
                             <div className="leading-tight">

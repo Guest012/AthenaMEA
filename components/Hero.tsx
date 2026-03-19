@@ -52,6 +52,10 @@ export default function Hero() {
           <img
             src={slide.image}
             alt={slide.alt}
+            width={1920}
+            height={1080}
+            fetchPriority={i === 0 ? 'high' : 'low'}
+            loading={i === 0 ? 'eager' : 'lazy'}
             className="w-full h-full object-cover transition-transform duration-[8000ms] ease-out"
             style={{
               transform: i === current ? 'scale(1.05)' : 'scale(1)',
@@ -173,7 +177,7 @@ export default function Hero() {
             >
               {i === current && (
                 <div
-                  className="absolute inset-y-0 left-0 bg-brand-400 rounded-full"
+                  className="absolute inset-0 bg-brand-400 rounded-full origin-left"
                   style={{
                     animation: `progressFill ${INTERVAL_MS}ms linear both`,
                   }}
@@ -222,10 +226,10 @@ export default function Hero() {
 
         @keyframes progressFill {
           from {
-            width: 0%;
+            transform: scaleX(0);
           }
           to {
-            width: 100%;
+            transform: scaleX(1);
           }
         }
       `}</style>

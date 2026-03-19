@@ -106,6 +106,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <head>
+        <link rel="preload" href="/hero-india.webp" as="image" type="image/webp" fetchPriority="high" />
         <link rel="llms" href="/llms.txt" />
         <link rel="llms-full" href="/llms-full.txt" />
         {/* Organization + WebSite JSON-LD for rich results and AI citations */}
