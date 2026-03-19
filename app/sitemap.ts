@@ -76,6 +76,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'india-market-entry-guide-2025',
     'hiring-leaders-india-middle-east',
     'compensation-benchmarking-trends-2025',
+    'saudi-arabia-market-entry-guide-2026',
+    'executive-search-vs-recruitment-india-middle-east',
+    'top-mistakes-entering-indian-market',
   ]
 
   const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
