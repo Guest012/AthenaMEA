@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { Mail, MapPin, Phone, Linkedin, Youtube, Twitter, Facebook, Instagram, X } from 'lucide-react';
 
 /* ─── Slide-in Panel ─── */
@@ -187,8 +186,6 @@ function TermsOfServiceContent() {
 /* ─── Footer Component ─── */
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const [privacyOpen, setPrivacyOpen] = useState(false);
-  const [termsOpen, setTermsOpen] = useState(false);
 
   const companyLinks = [
     { label: 'About', href: '/about-us' },
@@ -294,7 +291,6 @@ export default function Footer() {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      onClick={link.onClick ? (e) => { e.preventDefault(); link.onClick!(); } : undefined}
                       className={`text-sm transition-colors duration-300 block py-1.5 ${link.inactive ? 'text-slate-500 cursor-default' : 'text-slate-400 hover:text-white'}`}
                     >
                       {link.label}
@@ -373,31 +369,24 @@ export default function Footer() {
                 © {currentYear} Athena Executive Search & Consulting. All rights reserved.
               </p>
               <div className="flex items-center gap-6">
-                <button
-                  onClick={() => setPrivacyOpen(true)}
+                <a
+                  href="/privacy-policy"
                   className="text-xs text-slate-500 hover:text-slate-300 transition-colors"
                 >
                   Privacy
-                </button>
-                <button
-                  onClick={() => setTermsOpen(true)}
+                </a>
+                <a
+                  href="/terms-of-service"
                   className="text-xs text-slate-500 hover:text-slate-300 transition-colors"
                 >
                   Terms
-                </button>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </footer>
 
-      {/* Slide-in Panels */}
-      <SlidePanel open={privacyOpen} onClose={() => setPrivacyOpen(false)} title="Privacy Policy">
-        <PrivacyPolicyContent />
-      </SlidePanel>
-      <SlidePanel open={termsOpen} onClose={() => setTermsOpen(false)} title="Terms of Service">
-        <TermsOfServiceContent />
-      </SlidePanel>
     </>
   );
 }
