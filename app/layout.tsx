@@ -106,7 +106,23 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <head>
+        {/* Preconnect to external domains for faster resource loading */}
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        {/* Preload hero image for LCP */}
         <link rel="preload" href="/hero-india.webp" as="image" type="image/webp" fetchPriority="high" />
+        {/* Load remixicon asynchronously — not render-blocking */}
+        <link
+          rel="preload"
+          href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.min.css"
+          as="style"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var l=document.createElement('link');l.rel='stylesheet';l.href='https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.min.css';document.head.appendChild(l)})();`,
+          }}
+        />
         <link rel="llms" href="/llms.txt" />
         <link rel="llms-full" href="/llms-full.txt" />
         {/* Organization + WebSite JSON-LD for rich results and AI citations */}
@@ -273,7 +289,7 @@ export default function RootLayout({
         {/* Google Tag Manager */}
         <Script
           id="google-tag-manager"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
